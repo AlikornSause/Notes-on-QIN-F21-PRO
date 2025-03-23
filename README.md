@@ -1,7 +1,7 @@
 ## Notes on QIN F21 PRO
 
 ### Disclaimer
-I am an amateur, and everything I say here should be taken with a grain of salt. The information presented here was gathered through my research and from the amazing [XDA Forums](https://xdaforums.com/)! I do not take responsibility for bricking your device, losing your data, or any other issues that may arise.
+I am an amateur, and everything I say here should be taken with a grain of salt. The information presented here was gathered through my research and from the amazing [XDA Forums](https://xdaforums.com/)! I do not take responsibility for bricking your device, losing your data, or any other issues that may arise. The information presented here **might not be 100% true** and some of it is my subjective opinion. If in any case I am wrong i would greatly appreciate your feedback so that everything here be a great source of info for other people.
 
 It is very possible that you will encounter difficulties when rooting, flashing custom ROMs, or modifying your device. However, the good news is that there is a lot of support online, and most mistakes have already been made and fixed. Good luck hacking!
 
@@ -38,8 +38,22 @@ The phone comes with at least three different ROM versions:
 - **Hacked Version:** Chinese + English, bootloader unlocked, Google Play present, supposedly Google certified.
 - **International ROM:** Multi-language support, bootloader unlocked, Google Play present, NOT Google certified.
 
-There are also other, custom ROMs for this phone:
-- **LineageOS 18.1:** Custom ROM made by @a9381 user on 
+    **Privacy**
+    These stock ROMs are not to be trusted as they send weird packets directly to China.
+    Some of them were sent to NTP servers in China which isn't that weird but others point to duoqin.com, xiaomi and others.
+    A list of all URLs that are/ can be sent information:
+      - connect.rom.miui.com
+      - wifi.vivo.com.cn
+      - connectivitycheck.platform.hicloud.com
+      - cn.ntp.org.cn
+      - dq-avatar.duoqin.com
+      - loc.map.baidu.com
+    At least thats what my PCAPdroid said. I used it with root access so it should see literally everything sent from the device. I hope thats the case.
+
+ There are also some custom ROMs for this phone:
+ - **LineageOS 18.1:** Custom ROM posted by @a9381 user on [XDA Forums]([https://xdaforums.com/](https://xdaforums.com/t/rom-beta-unoffical-lineageos-18-1-for-xiaomi-qin-f21s-pro-by-a-i-v.4431693/))!, contains some bugs such as the keypad backlight being always on, no access to /data partition by twrp, VOLTE problems and the wifi and bluetooth being on by default. These bugs seem to be fixable and possibly already fixed in the newer versions of this rom. I haven't tested it yet but it seems like a great alternative to the stock ROMs.
+ - **LineageOS 18.1:** Custom ROM posted by @a9381 user on [XDA Forums here](https://xdaforums.com/t/rom-beta-unoffical-lineageos-18-1-for-xiaomi-qin-f21s-pro-by-a-i-v.4431693/), it contains some bugs such as the keypad backlight being always on, no access to /data partition by twrp, VOLTE problems and the wifi and bluetooth being on by default. These bugs seem to be fixable and possibly already fixed in the newer versions of this rom. I haven't tested it yet but it seems like a great alternative to the stock ROMs. I haven't tested this ROM yet but it is reported to work on the 32+3GB version.
+ - **Some kosher ROMs for for the religious people from Israel** made by @Ashi Vered. You can find more info in [his GitHub page](https://github.com/AshiVered/Android-custom-ROMs).
 ---
 
 ## Differences
@@ -149,4 +163,11 @@ Fastboot mode is used for flashing firmware, unlocking the bootloader, and check
   
 ### **BROM (bootrom) mode** used in mtkclient or spflash tool
   When using these 2 tools, you might want to put the phone in this mode
-  To do this, hold the Owl/Heart/Qinguard button and back button and 
+  To do this, hold the Owl/Heart/Qinguard button and back button and connect the device to your computer, while mtkclient or spflashtool is running
+  
+![brom](https://github.com/user-attachments/assets/0b3f8312-71f7-4ac1-b2d1-e6e21251a2b4)
+
+
+## Interesting facts about the phone
+
+- Pressing the 4, 7, * keys at the same time 
