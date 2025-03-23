@@ -40,15 +40,18 @@ much for hacking purposes.
 
 # Hardware modes
 The phone can be booted into a couple of modes, all of which start from the device being TURNED OFF
-- Normal mode entered by pressing the power button for a couple of seconds until you see the logo
+- **Normal mode** entered by pressing the power button for a couple of seconds until you see the logo
 
 ![normal](https://github.com/user-attachments/assets/fd88e24c-d9e9-4881-8113-91b7e388cf6f)
 
 
-- Recovery mode entered by holding down the following buttons: * , owl/heart/qinguard , power/hangup.
+
+- **Recovery mode** entered by holding down the following buttons: * , owl/heart/qinguard , power/hangup. 
   When you see the boot menu, stop pressing the power/hangup button but keep pressing the 2 other.
   If you were to keep pressing the power button the phone would just reboot
 
+  **This mode can also be entered by *adb reboot bootloader***
+  
   ![recovery](https://github.com/user-attachments/assets/85496ee0-80f1-4552-ac21-1b2465d80fcf)
 
  You will then be granted with this screen:
@@ -64,11 +67,10 @@ The phone can be booted into a couple of modes, all of which start from the devi
 ![485080215_696675326047670_489383135115806802_n](https://github.com/user-attachments/assets/243b470e-849d-4587-ae87-5ba379ebf61d)
 
 Use the "joystick" buttons to navigate and the power button to select  
-
 What the options do:  
 - **Reboot to system now**: reboots to normal mode  
 - **Reboot to bootloader**: reboots to fastboot mode  
-- **Enter fastboot**: enters a fastboot-like environment  
+- **Enter fastboot**: enters a fastbootd menu with the options to reboot, go back to recovery, reboot to actual fastboot or poweroff. This menu can also be entered using *adb reboot fastboot.*
 - **Apply update from ADB**: ? untested  
 - **Apply update from SD card**: ? untested (phone also has no SD card slot lol)  
 - **Wipe data/ factory reset**: wipes all user data (99% works, haven't tested it though)  
@@ -78,3 +80,8 @@ What the options do:
 - **Run locale test**: displays a locale testing window where you can see different language versions for "no_command_text", "installing_text", "error_text", "installing_security_text", and "erasing_text"  
 - **Power off**: REBOOTS the device (at least it did that for me)  
 
+This mode could be useful but I am not sure how. Definately can be used to enter the fastboot which is useful
+
+
+
+- **Fastboot/ Bootloader mode** can be entered using the recovery menu as mentioned above, using *adb reboot bootloader* or using MTKClient payloads (which didn't work for me but did for other people)
