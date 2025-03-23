@@ -1,88 +1,144 @@
-# Notes-on-QIN-F21-PRO
-# Disclaimer
-I am an amateur and everything i say here should be taked with a grain of salt.
-The information presented here was gathered by my research and the amazing [xdaforums.com](https://xdaforums.com/)!
-I do not take responsibility for you bricking your device, losing your data or anything similar,
-it is very much possible that you will encounter difficulties along the way of rooting, flashing
-custom ROMs or modifing your device. The good part is that theres a lot of support online and most
-mistakes have already been made and fixed. Good luck hacking!
+## Notes on QIN F21 PRO
 
-# The phone
-The Qin F21 Pro is a half-touchscreen, half-button phone running Android 11.
-The phone features a 2.8-inch 640 x 480px IPS capacitive touchscreen and a 5MP rear camera with a 2MP front camera.
-It is compatible with GSM networks 850/900/1800/1900MHz and supports 4G networks.
-The device is available in different configurations
+### Disclaimer
+I am an amateur, and everything I say here should be taken with a grain of salt. The information presented here was gathered through my research and from the amazing [XDA Forums](https://xdaforums.com/)! I do not take responsibility for bricking your device, losing your data, or any other issues that may arise.
 
-# Versions
-There are 2 main hardware versions of the phone:
-- The 64+4GB version
-- The 32+3GB version
+It is very possible that you will encounter difficulties when rooting, flashing custom ROMs, or modifying your device. However, the good news is that there is a lot of support online, and most mistakes have already been made and fixed. Good luck hacking!
 
-they also vary in color, there is:
-- A white version
-- A black version
+---
 
-and also in keyboard language:
+## The Phone
+The **Qin F21 Pro** is a half-touchscreen, half-button phone running **Android 11**. It features:
+- **2.8-inch 640 x 480px IPS capacitive touchscreen**
+- **5MP rear camera** with a **2MP front camera**
+- **GSM networks:** 850/900/1800/1900MHz
+- **4G network support**
+
+The device is available in different configurations.
+
+---
+
+## Versions
+There are **two main hardware versions** of the phone:
+- **64+4GB version**
+- **32+3GB version**
+
+The phone also varies in **color**:
+- White
+- Black
+
+Additionally, it has different **keyboard languages**:
 - English
 - Russian
 - Hebrew
 
-The phone also varies very much in software, there seem to be at least 3 rom versions that you could get:
--Original factory rom: Chinese + English, without Google Play and bootloader locked
--Hacked version: Chinese + English, bootloader unlocked, Google Play present and supposedly Google certified 
--International ROM with Google Play: Many languages supported, bootloader unlocked, Google Play present but NOT-Google certified
+### Software Variants
+The phone comes with at least three different ROM versions:
+- **Original Factory ROM:** Chinese + English, bootloader locked, no Google Play.
+- **Hacked Version:** Chinese + English, bootloader unlocked, Google Play present, supposedly Google certified.
+- **International ROM:** Multi-language support, bootloader unlocked, Google Play present, NOT Google certified.
 
-# Differences
-The 64+4GB seems to be easier to root/ install custom roms.
-I have a 32+3GB black english original rom and proved that it's possible to modify the device and root it and I
-will mostly focus on this version. What matters most is if you have 64+4GB or 32+3GB version and all the other parameters don't mean as
-much for hacking purposes.
+---
 
-# Hardware modes
-The phone can be booted into a couple of modes, all of which start from the device being TURNED OFF
-- **Normal mode** entered by pressing the power button for a couple of seconds until you see the logo
+## Differences
+The **64+4GB version** seems to be **easier to root and install custom ROMs**. I personally have a **32+3GB black English original ROM** and have confirmed that it's possible to modify and root this version. 
 
-![normal](https://github.com/user-attachments/assets/fd88e24c-d9e9-4881-8113-91b7e388cf6f)
+For hacking purposes, the **most important factor** is whether you have the **64+4GB or 32+3GB version**—other differences don't matter as much.
 
+---
 
+## Hardware Modes
+The phone can be booted into several modes, all of which require the device to be **TURNED OFF**.
 
-- **Recovery mode** entered by holding down the following buttons: * , owl/heart/qinguard , power/hangup. 
-  When you see the boot menu, stop pressing the power/hangup button but keep pressing the 2 other.
-  If you were to keep pressing the power button the phone would just reboot
+### **Normal Mode**
+Entered by pressing the **power button** for a few seconds until the logo appears.
 
-  **This mode can also be entered by *adb reboot bootloader***
-  
-  ![recovery](https://github.com/user-attachments/assets/85496ee0-80f1-4552-ac21-1b2465d80fcf)
+<img src="<img src="![Normal Mode](https://github.com/user-attachments/assets/fd88e24c-d9e9-4881-8113-91b7e388cf6f" width="300">
 
- You will then be granted with this screen:
+---
 
- ![image](https://github.com/user-attachments/assets/51cc821b-59e7-48a0-a0bd-fc692de65811)
+### **Recovery Mode**
+Entered by holding down the following buttons:
+- **Owl/Heart/Qinguard button**
+- **Power/Hangup button**
+- **`*` (Star)" width="300"> button**
 
- To enter the menu, you will need to hold down the power/hangup button and press the up button on the "joystick":
+Once the **boot menu** appears, **release the power button but continue holding the other two buttons**. If you keep holding the power button, the phone will simply reboot.
 
- ![recovery](https://github.com/user-attachments/assets/a6db75fb-3d77-4a43-ae24-dc5f90d402d2)
+Alternatively, you can enter this mode using:
+```sh
+adb reboot bootloader
+```
 
- Now you will see this menu:
- 
-![485080215_696675326047670_489383135115806802_n](https://github.com/user-attachments/assets/243b470e-849d-4587-ae87-5ba379ebf61d)
+<img src="<img src="![Recovery Mode](https://github.com/user-attachments/assets/85496ee0-80f1-4552-ac21-1b2465d80fcf" width="300">
 
-Use the "joystick" buttons to navigate and the power button to select  
-What the options do:  
-- **Reboot to system now**: reboots to normal mode  
-- **Reboot to bootloader**: reboots to fastboot mode  
-- **Enter fastboot**: enters a fastbootd menu with the options to reboot, go back to recovery, reboot to actual fastboot or poweroff. This menu can also be entered using *adb reboot fastboot.*
-- **Apply update from ADB**: ? untested  
-- **Apply update from SD card**: ? untested (phone also has no SD card slot lol)  
-- **Wipe data/ factory reset**: wipes all user data (pretty sure it works although I haven't tested it)  
-- **Mount /system**: says "Mounted /system." at the bottom of the screen, unknown if it can be useful  
-- **View recovery logs**: opens a dialog with a file that you can open and read, contains recovery logs  
-- **Run graphics test**: performs a graphics test, displaying multiple images including the broken Android "No command" image, data clearing animation, and a couple of others, then goes back to the main menu  
-- **Run locale test**: displays a locale testing window where you can see different language versions for "no_command_text", "installing_text", "error_text", "installing_security_text", and "erasing_text"  
-- **Power off**: REBOOTS the device (at least it did that for me)  
+After entering Recovery Mode, you will see this screen:
 
-This mode could be useful but I am not sure how. Definately can be used to enter the fastboot which is useful
+<img src="![Recovery Menu](https://github.com/user-attachments/assets/51cc821b-59e7-48a0-a0bd-fc692de65811" width="300">
 
+To enter the menu, **hold down the power/hangup button and press the up button on the "joystick"**:
 
+<img src="![Recovery Selection](https://github.com/user-attachments/assets/a6db75fb-3d77-4a43-ae24-dc5f90d402d2" width="300">
 
-- **Fastboot/ Bootloader mode** can be entered using the recovery menu as mentioned above, using *adb reboot bootloader* or using MTKClient payloads (which didn't work for me but did for other people)
-  It can be used for flashing, checking the current slot *fastboot getvar current-slot*, changing the active slot with *fastboot set_active a*
+You will then see this menu:
+
+<img src="![Recovery Menu Options](https://github.com/user-attachments/assets/243b470e-849d-4587-ae87-5ba379ebf61d" width="300">
+
+#### **Navigation**
+- Use the **joystick buttons** to navigate.
+- Use the **power button** to select.
+
+#### **Recovery Menu Options**
+- **Reboot to system now:** Reboots into normal mode.
+- **Reboot to bootloader:** Reboots into fastboot mode.
+- **Enter fastboot:** Enters fastbootd mode with options to reboot, return to recovery, enter fastboot, or power off. This can also be accessed via:
+  ```sh
+  adb reboot fastboot
+  ```
+- **Apply update from ADB:** Untested.
+- **Apply update from SD card:** Untested (the phone lacks an SD card slot)" width="300">.
+- **Wipe data/factory reset:** Wipes all user data (**likely works, but untested**).
+- **Mount /system:** Displays "Mounted /system." at the bottom, but its usefulness is unclear.
+- **View recovery logs:** Displays logs from recovery mode.
+- **Run graphics test:** Displays a test of multiple images, including the broken Android "No Command" image and data-clearing animation.
+- **Run locale test:** Shows different language versions of system texts such as "No Command," "Installing," and "Erasing."
+- **Power off:** Reboots the device (instead of powering it down).
+
+This mode could be useful, but I am not sure exactly how. It **can** be used to enter **fastboot mode**, which is very useful for flashing and modifications.
+
+---
+
+### **Fastboot/Bootloader Mode**
+Fastboot mode can be entered in multiple ways:
+- From the **Recovery Menu** (as mentioned above)
+- Using ADB:
+  ```sh
+  adb reboot bootloader
+  ```
+- Using **MTKClient payloads**:
+  ```sh
+  python mtk payload --metamode FASTBOOT
+  ```
+  *(This did not work for me, but it worked for others.)*
+
+<img src="![Fastboot Mode](https://github.com/user-attachments/assets/d2637828-6242-426c-b2c8-bc555096ebe2" width="300">
+
+#### **Fastboot Commands**
+Fastboot mode is used for flashing firmware, unlocking the bootloader, and checking/modifying partitions.
+- **Check current slot:**
+  ```sh
+  fastboot getvar current-slot
+  ```
+- **Change active slot:**
+  ```sh
+  fastboot set_active a
+  fastboot set_active b
+  ```
+
+---
+
+### **Final Notes**
+If you're planning to root, flash a ROM, or modify your Qin F21 Pro, **proceed with caution**. Research extensively, follow guides carefully, and always make backups where possible.
+
+Let me know if you need more details or help troubleshooting. Happy hacking! 🚀
+
