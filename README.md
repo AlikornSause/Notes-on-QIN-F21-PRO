@@ -63,14 +63,18 @@ The phone can be booted into a couple of modes, all of which start from the devi
  
 ![485080215_696675326047670_489383135115806802_n](https://github.com/user-attachments/assets/243b470e-849d-4587-ae87-5ba379ebf61d)
 
-Use the "joystick" buttons to navigate ang the power button to select
-What the options do:
--Reboot to system now : reboots to normal mode
--Reboot to bootloader : reboots to fastboot mode
--Enter fastboot : enters a fastboot-like environment
--Apply update from ADB : ? untested
--Apply update from SD card : ? untested (phone also has no SD card slot lol)
--Wipe data/ factory reset : wipes all user data (99% works haven't tested it though)
--Mount /system : says "Mounted /system." at the bottom of the screen, unknown if it can be useful
--Viev recovery logs : opens a dialog with a file that you can open and read, contains recovery logs
--G : performs a graphics test, displaying multiple images including the broken android  "No command" image", data clearing animation and a couple of others, then goes back to the main menu
+Use the "joystick" buttons to navigate and the power button to select  
+
+What the options do:  
+- **Reboot to system now**: reboots to normal mode  
+- **Reboot to bootloader**: reboots to fastboot mode  
+- **Enter fastboot**: enters a fastboot-like environment  
+- **Apply update from ADB**: ? untested  
+- **Apply update from SD card**: ? untested (phone also has no SD card slot lol)  
+- **Wipe data/ factory reset**: wipes all user data (99% works, haven't tested it though)  
+- **Mount /system**: says "Mounted /system." at the bottom of the screen, unknown if it can be useful  
+- **View recovery logs**: opens a dialog with a file that you can open and read, contains recovery logs  
+- **Run graphics test**: performs a graphics test, displaying multiple images including the broken Android "No command" image, data clearing animation, and a couple of others, then goes back to the main menu  
+- **Run locale test**: displays a locale testing window where you can see different language versions for "no_command_text", "installing_text", "error_text", "installing_security_text", and "erasing_text"  
+- **Power off**: REBOOTS the device (at least it did that for me)  
+
