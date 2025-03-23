@@ -37,3 +37,40 @@ The 64+4GB seems to be easier to root/ install custom roms.
 I have a 32+3GB black english original rom and proved that it's possible to modify the device and root it and I
 will mostly focus on this version. What matters most is if you have 64+4GB or 32+3GB version and all the other parameters don't mean as
 much for hacking purposes.
+
+# Hardware modes
+The phone can be booted into a couple of modes, all of which start from the device being TURNED OFF
+- Normal mode entered by pressing the power button for a couple of seconds until you see the logo
+
+![normal](https://github.com/user-attachments/assets/fd88e24c-d9e9-4881-8113-91b7e388cf6f)
+
+
+- Recovery mode entered by holding down the following buttons: * , owl/heart/qinguard , power/hangup.
+  When you see the boot menu, stop pressing the power/hangup button but keep pressing the 2 other.
+  If you were to keep pressing the power button the phone would just reboot
+
+  ![recovery](https://github.com/user-attachments/assets/85496ee0-80f1-4552-ac21-1b2465d80fcf)
+
+ You will then be granted with this screen:
+
+ ![image](https://github.com/user-attachments/assets/51cc821b-59e7-48a0-a0bd-fc692de65811)
+
+ To enter the menu, you will need to hold down the power/hangup button and press the up button on the "joystick":
+
+ ![recovery](https://github.com/user-attachments/assets/a6db75fb-3d77-4a43-ae24-dc5f90d402d2)
+
+ Now you will see this menu:
+ 
+![485080215_696675326047670_489383135115806802_n](https://github.com/user-attachments/assets/243b470e-849d-4587-ae87-5ba379ebf61d)
+
+Use the "joystick" buttons to navigate ang the power button to select
+What the options do:
+-Reboot to system now : reboots to normal mode
+-Reboot to bootloader : reboots to fastboot mode
+-Enter fastboot : enters a fastboot-like environment
+-Apply update from ADB : ? untested
+-Apply update from SD card : ? untested (phone also has no SD card slot lol)
+-Wipe data/ factory reset : wipes all user data (99% works haven't tested it though)
+-Mount /system : says "Mounted /system." at the bottom of the screen, unknown if it can be useful
+-Viev recovery logs : opens a dialog with a file that you can open and read, contains recovery logs
+-G : performs a graphics test, displaying multiple images including the broken android  "No command" image", data clearing animation and a couple of others, then goes back to the main menu
