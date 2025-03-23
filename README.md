@@ -134,6 +134,14 @@ Fastboot mode is used for flashing firmware, unlocking the bootloader, and check
   ```sh
   fastboot getvar current-slot
   ```
+- **Check all fastboot info:**
+  ```sh
+  fastboot getvar all
+  ```
+- **Set active slot:**
+  ```sh
+  fastboot set_active a
+  ```
 ## Notes on QIN F21 PRO
 
 ### Disclaimer
