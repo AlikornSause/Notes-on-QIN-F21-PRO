@@ -73,7 +73,7 @@ What the options do:
 - **Enter fastboot**: enters a fastbootd menu with the options to reboot, go back to recovery, reboot to actual fastboot or poweroff. This menu can also be entered using *adb reboot fastboot.*
 - **Apply update from ADB**: ? untested  
 - **Apply update from SD card**: ? untested (phone also has no SD card slot lol)  
-- **Wipe data/ factory reset**: wipes all user data (99% works, haven't tested it though)  
+- **Wipe data/ factory reset**: wipes all user data (pretty sure it works although I haven't tested it)  
 - **Mount /system**: says "Mounted /system." at the bottom of the screen, unknown if it can be useful  
 - **View recovery logs**: opens a dialog with a file that you can open and read, contains recovery logs  
 - **Run graphics test**: performs a graphics test, displaying multiple images including the broken Android "No command" image, data clearing animation, and a couple of others, then goes back to the main menu  
@@ -85,3 +85,4 @@ This mode could be useful but I am not sure how. Definately can be used to enter
 
 
 - **Fastboot/ Bootloader mode** can be entered using the recovery menu as mentioned above, using *adb reboot bootloader* or using MTKClient payloads (which didn't work for me but did for other people)
+  It can be used for flashing, checking the current slot *fastboot getvar current-slot*, changing the active slot with *fastboot set_active a*
