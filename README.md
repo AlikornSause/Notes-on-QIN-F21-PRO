@@ -7,6 +7,11 @@ It is very possible that you will encounter difficulties when rooting, flashing 
 
 ---
 
+## Table of Contents
+- [Introduction to the phone](#the-phone)
+- [Device versions](#versions)
+- [Hardware modes](#hardware-modes)
+
 ## The Phone
 The **Qin F21 Pro** is a half-touchscreen, half-button phone running **Android 11**. It features:
 - **2.8-inch 640 x 480px IPS capacitive touchscreen**
@@ -71,8 +76,6 @@ Entered by pressing the **power button** for a few seconds until the logo appear
 
 <img src="https://github.com/user-attachments/assets/fd88e24c-d9e9-4881-8113-91b7e388cf6f" width="300">
 
----
-
 ### **Recovery Mode**
 Entered by holding down the following buttons:
 - **Owl/Heart/Qinguard button**
@@ -94,7 +97,7 @@ After entering Recovery Mode, you will see this screen:
 
 To enter the menu, **hold down the power/hangup button and press the up button on the "joystick"**:
 
-<img src="https://github.com/user-attachments/assets/a6db75fb-3d77-4a43-ae24-dc5f90d402d2" width="300">
+<img src="https://github.com/user-attachments/assets/c80d086b-f327-4733-b43a-26f6bcef1f44" width="300">
 
 You will then see this menu:
 
@@ -107,10 +110,7 @@ You will then see this menu:
 #### **Recovery Menu Options**
 - **Reboot to system now:** Reboots into normal mode.
 - **Reboot to bootloader:** Reboots into fastboot mode.
-- **Enter fastboot:** Enters fastbootd mode with options to reboot, return to recovery, enter fastboot, or power off. This can also be accessed via:
-  ```sh
-  adb reboot fastboot
-  ```
+- **Enter fastboot:** Enters fastbootd mode with options to reboot, return to recovery, enter fastboot, or power off. This mode can also be accessed via:```adb reboot fastboot```.
 - **Apply update from ADB:** Untested.
 - **Apply update from SD card:** Untested (the phone lacks an SD card slot).
 - **Wipe data/factory reset:** Wipes all user data (**likely works, but untested**).
@@ -121,8 +121,6 @@ You will then see this menu:
 - **Power off:** Reboots the device (instead of powering it down).
 
 This mode could be useful, but I am not sure exactly how. It **can** be used to enter **fastboot mode**, which is very useful for flashing and modifications.
-
----
 
 ### **Fastboot/Bootloader Mode**
 Fastboot mode can be entered in multiple ways:
@@ -135,7 +133,7 @@ Fastboot mode can be entered in multiple ways:
   ```sh
   python mtk payload --metamode FASTBOOT
   ```
-  *(This did not work for me, but it worked for others.)*
+  *(This did not work for me, but it is reported to work)*
 
 <img src="https://github.com/user-attachments/assets/d2637828-6242-426c-b2c8-bc555096ebe2" width="300">
 
@@ -158,6 +156,7 @@ Fastboot mode is used for flashing firmware, unlocking the bootloader, and check
   When using these 2 tools, you might want to put the phone in this mode
   To do this, simply connect the phone to your computer with a USB cable when the tool is running without pressing any keys.
   This should put the phone in preloader mode.
+  <img src="https://github.com/user-attachments/assets/20b574fd-3f11-4afe-ac0e-2ebb3a4fed44" width="300">
 
   This mode together with these tools can be used to dump the rom, make backups, flash the rom and many other things
   
@@ -165,12 +164,15 @@ Fastboot mode is used for flashing firmware, unlocking the bootloader, and check
   When using these 2 tools, you might want to put the phone in this mode
   To do this, hold the Owl/Heart/Qinguard button and back button and connect the device to your computer, while mtkclient or spflashtool is running
   
-![brom](https://github.com/user-attachments/assets/0b3f8312-71f7-4ac1-b2d1-e6e21251a2b4)
+  ![brom](https://github.com/user-attachments/assets/0b3f8312-71f7-4ac1-b2d1-e6e21251a2b4)
+
+
+---
 
 
 ## The keypad and buttons
 
-- Pressing the 4, 7, * keys at the same time gives the same keycode as the back button. This is probably caused by how the keyboard distinguishes buttons, either by a row-column matrix or by having different resistances for each key. It could mean that the 3 keys' resistances add up to be the same as the back button's resistance.
+- Pressing the **4, 7,** keys at the same time gives the same keycode as the back button. This is probably caused by how the keyboard distinguishes buttons, either by a row-column matrix or by having different resistances for each key. It could mean that the 3 keys' resistances add up to be the same as the back button's resistance.
 
 - When experimenting with settings in the stock locked ROM, I was very interested in the "Quick Settings" tab (which is responsible for selecting hotkeys for different actions such as vol+, vol-, opening an app, speed dial, flashlight, or opening any other app. The action is invoked when a chosen button is long pressed), and I discovered a couple of things.  
     - **First discovery:** The hotkeys only work with the default launcher. I am using a custom open-source minimalist launcher which can be found [here](https://github.com/DroidWorksStudio/EasyLauncher). I will discuss useful software for the phone later.  
