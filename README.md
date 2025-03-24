@@ -1,13 +1,6 @@
 # Notes on QIN F21 PRO
-
-## Disclaimer
-I am an amateur, and everything I say here should be taken with a grain of salt. The information presented here was gathered through my research and from the amazing [XDA Forums](https://xdaforums.com/)! I do not take responsibility for bricking your device, losing your data, or any other issues that may arise. The information presented here **might not be 100% true** and some of it is my subjective opinion. If in any case I am wrong i would greatly appreciate your feedback so that everything here be a great source of info for other people.
-
-It is very possible that you will encounter difficulties when rooting, flashing custom ROMs, or modifying your device. However, the good news is that there is a lot of support online, and most mistakes have already been made and fixed. Good luck hacking!
-
----
-
 ## Table of Contents
+- [Disclaimer](#disclaimer)
 - [Introduction to the phone](#the-phone)
 - [Device variants](#versions)
     - [Hardware variants](#hardware-versions)
@@ -17,8 +10,19 @@ It is very possible that you will encounter difficulties when rooting, flashing 
 - [Hardware modes](#hardware-modes)
     - [Normal mode](#normal-mode)
     - [Recovery mode](#recovery-mode)
-    - [Fastboot/bootloader mode](#fastboot/bootloader-mode)
- - [The keypad and buttons](#the-keypad-and-buttons)
+    - [Fastboot/Bootloader Mode](#fastbootbootloader-mode)
+- [The keypad and buttons](#the-keypad-and-buttons)
+
+## Disclaimer
+I am an amateur, and everything I say here should be taken with a grain of salt. The information presented here was gathered through my research and from the amazing [XDA Forums](https://xdaforums.com/)! I do not take responsibility for bricking your device, losing your data, or any other issues that may arise. The information presented here **might not be 100% true** and some of it is my subjective opinion. If in any case I am wrong i would greatly appreciate your feedback so that everything here be a great source of info for other people.
+
+It is very possible that you will encounter difficulties when rooting, flashing custom ROMs, or modifying your device. However, the good news is that there is a lot of support online, and most mistakes have already been made and fixed. Good luck hacking!
+
+
+
+---
+
+
 
 ## The Phone
 The **Qin F21 Pro** is a half-touchscreen, half-button phone running **Android 11**. It features:
@@ -29,7 +33,11 @@ The **Qin F21 Pro** is a half-touchscreen, half-button phone running **Android 1
 
 The device is available in different configurations.
 
+
+
 ---
+
+
 
 ## Versions
 ### Hardware versions
@@ -69,14 +77,17 @@ The phone comes with at least three different ROM versions:
       - loc.map.baidu.com
     At least thats what my PCAPdroid said. I used it with root access so it should see literally everything sent from the device. I hope thats the case.
    The privacy topic will be discussed more later in this document.
----
 
 ### Differences
 The **64+4GB version** seems to be **easier to root and install custom ROMs**. I personally have a **32+3GB black English original ROM** and have confirmed that it's possible to modify and root this version. 
 
 For hacking purposes, the **most important factor** is whether you have the **64+4GB or 32+3GB version** and whether **the bootloader is unlocked**—other differences don't matter as much.
 
+
+
 ---
+
+
 
 ## Hardware Modes
 The phone can be booted into several modes, all of which require the device to be **TURNED OFF**.
@@ -177,7 +188,9 @@ Fastboot mode is used for flashing firmware, unlocking the bootloader, and check
   ![brom](https://github.com/user-attachments/assets/0b3f8312-71f7-4ac1-b2d1-e6e21251a2b4)
 
 
+
 ---
+
 
 
 ## The keypad and buttons
