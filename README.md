@@ -623,5 +623,18 @@ You can change it to say something else.
    - If done corectly, the text should be changed accordingly 🙂
 
 ## Removing the Orange State Warning text
+**You might me annoyed by this text that appears when booting:**
+```
+Orange State
+Your device has been unlocked and can't be trusted
+Your device will boot in 5 seconds
+```
+You can remove it the same way as editing it [here](#changing-the-orange-state-warning-text).
+You will just need to put ```00's``` in place of all of the characters.
+This should look like this
+
+![image](https://github.com/user-attachments/assets/81b220f4-4862-47d9-b9a8-acd1ef875ce3)
+
+Other than that, the steps with removing the text are the same as [changing it](#changing-the-orange-state-warning-text).
 
 # Errors you can encounter
