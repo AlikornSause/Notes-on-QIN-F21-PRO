@@ -510,7 +510,10 @@ Note: This tutorial is based on [this](https://xdaforums.com/t/guide-xiaomi-qin-
     - Click **Set** next to the **vbmeta_a** or **vbmeta_b** (depending on your **active slot**) and select [the vbmeta file](https://github.com/AlikornSause/Notes-on-QIN-F21-PRO/blob/main/vbmeta_a.bin) you downloaded earlier.
     - **MAKE SURE NO OTHER PARTITION IS SELECTED!**
     - Click **Write partition** and let it do its thing
-      
+   
+    ![image](https://github.com/user-attachments/assets/6f414421-bad4-4652-b5e8-09e28aba5845)
+
+
 > **DO NOT touch anything, move the cable, or interrupt the process!**
 
 12. **When it says its done, unplug your phone**.
