@@ -9,8 +9,16 @@ It is very possible that you will encounter difficulties when rooting, flashing 
 
 ## Table of Contents
 - [Introduction to the phone](#the-phone)
-- [Device versions](#versions)
+- [Device variants](#versions)
+    - [Hardware variants](#hardware-versions)
+    - [Software variants (ROMs)](#software-versions)
+    - [Custom ROMs](#custom-roms)
+    - [Differences](#differences)
 - [Hardware modes](#hardware-modes)
+    - [Normal mode](#normal-mode)
+    - [Recovery mode](#recovery-mode)
+    - [Fastboot/bootloader mode](#fastboot/bootloader-mode)
+ - [The keypad and buttons](#the-keypad-and-buttons)
 
 ## The Phone
 The **Qin F21 Pro** is a half-touchscreen, half-button phone running **Android 11**. It features:
@@ -24,6 +32,7 @@ The device is available in different configurations.
 ---
 
 ## Versions
+### Hardware versions
 There are **two main hardware versions** of the phone:
 - **64+4GB version**
 - **32+3GB version**
@@ -37,12 +46,13 @@ Additionally, it has different **keyboard languages**:
 - Russian
 - Hebrew
 
-### Software Variants
+### Software versions
 The phone comes with at least three different ROM versions:
 - **Original Factory ROM:** Chinese + English, bootloader locked, no Google Play.
 - **Hacked Version:** Chinese + English, bootloader unlocked, Google Play present, supposedly Google certified.
 - **International ROM:** Multi-language support, bootloader unlocked, Google Play present, NOT Google certified.
 
+### Custom ROMs
  There are also some custom ROMs for this phone:
  - **LineageOS 18.1:** Custom ROM posted by @a9381 user on [XDA Forums here](https://xdaforums.com/t/rom-beta-unoffical-lineageos-18-1-for-xiaomi-qin-f21s-pro-by-a-i-v.4431693/), it contains some bugs such as the keypad backlight being always on, no access to /data partition by twrp, VOLTE problems and the wifi and bluetooth being on by default. These bugs seem to be fixable and possibly already fixed in the newer versions of this rom. I haven't tested it yet but it seems like a great alternative to the stock ROMs. I haven't tested this ROM yet but it is reported to work on the 32+3GB version.
  - **Some kosher ROMs for for the religious people from Israel** made by @Ashi Vered. You can find more info in [his GitHub page](https://github.com/AshiVered/Android-custom-ROMs).
