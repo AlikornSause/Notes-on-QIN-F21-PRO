@@ -307,7 +307,7 @@ The view from mtkclient:
    There are multiple ways one might try to debloat the system or deleting the apps:\
            -**Disabling some of the apps:** it's not possible to uninstall the bloatware but you can disable some of the apps\
                 in the settings. You can also strip them from background data permision and other permissions but they will\
-                technically still be there. This **does not** require root but isn't very effective.
+                technically still be there. This **does not** require root but isn't very effective.~\
            -**Uninstalling the apps with a debloater:** you can uninstall all the apps **if your phone is rooted** using a
                system app remover/debloater like [this one](https://github.com/sunilpaulmathew/De-Bloater) which can work for some apps but for me, they only seemed to be removed\
                it might be just me using the app in a wrong way but i think it isn't the best option considering that you **already need root to do this**\
