@@ -11,7 +11,9 @@
     - [Normal mode](#normal-mode)
     - [Recovery mode](#recovery-mode)
     - [Fastboot/Bootloader Mode](#fastbootbootloader-mode)
-- [The keypad and buttons](#the-keypad-and-buttons)
+- [Keypad and buttons](#keypad-and-buttons)
+- [Software](#software)
+    - [Preinstalled apps](#preinstalled-apps)
 
 ## Disclaimer
 I am an amateur, and everything I say here should be taken with a grain of salt. The information presented here was gathered through my research and from the amazing [XDA Forums](https://xdaforums.com/)! I do not take responsibility for bricking your device, losing your data, or any other issues that may arise. The information presented here **might not be 100% true** and some of it is my subjective opinion. If in any case I am wrong i would greatly appreciate your feedback so that everything here be a great source of info for other people.
@@ -92,12 +94,12 @@ For hacking purposes, the **most important factor** is whether you have the **64
 ## Hardware Modes
 The phone can be booted into several modes, all of which require the device to be **TURNED OFF**.
 
-### **Normal Mode**
+#### **Normal Mode**
 Entered by pressing the **power button** for a few seconds until the logo appears.
 
 <img src="https://github.com/user-attachments/assets/fd88e24c-d9e9-4881-8113-91b7e388cf6f" width="300">
 
-### **Recovery Mode**
+#### **Recovery Mode**
 Entered by holding down the following buttons:
 - **Owl/Heart/Qinguard button**
 - **Power/Hangup button**
@@ -124,11 +126,11 @@ You will then see this menu:
 
 <img src="https://github.com/user-attachments/assets/243b470e-849d-4587-ae87-5ba379ebf61d" width="300">
 
-#### **Navigation**
+##### **Navigation**
 - Use the **joystick buttons** to navigate.
 - Use the **power button** to select.
 
-#### **Recovery Menu Options**
+##### **Recovery Menu Options**
 - **Reboot to system now:** Reboots into normal mode.
 - **Reboot to bootloader:** Reboots into fastboot mode.
 - **Enter fastboot:** Enters fastbootd mode with options to reboot, return to recovery, enter fastboot, or power off. This mode can also be accessed via:```adb reboot fastboot```.
@@ -143,7 +145,7 @@ You will then see this menu:
 
 This mode could be useful, but I am not sure exactly how. It **can** be used to enter **fastboot mode**, which is very useful for flashing and modifications.
 
-### **Fastboot/Bootloader Mode**
+#### **Fastboot/Bootloader Mode**
 Fastboot mode can be entered in multiple ways:
 - From the **Recovery Menu** (as mentioned above)
 - Using ADB:
@@ -158,7 +160,7 @@ Fastboot mode can be entered in multiple ways:
 
 <img src="https://github.com/user-attachments/assets/d2637828-6242-426c-b2c8-bc555096ebe2" width="300">
 
-#### **Fastboot Commands**
+##### **Fastboot Commands**
 Fastboot mode is used for flashing firmware, unlocking the bootloader, and checking/modifying partitions.
 - **Check current slot:**
   ```sh
@@ -173,27 +175,33 @@ Fastboot mode is used for flashing firmware, unlocking the bootloader, and check
   fastboot set_active a
   fastboot set_active b
   ```
-### **Preloader mode** used in mtkclient or spflash tool
+#### **Preloader mode** used in mtkclient or spflash tool
   When using these 2 tools, you might want to put the phone in this mode
   To do this, simply connect the phone to your computer with a USB cable when the tool is running without pressing any keys.
   This should put the phone in preloader mode.
+
+  The view from mtkclient:
+  
   <img src="https://github.com/user-attachments/assets/20b574fd-3f11-4afe-ac0e-2ebb3a4fed44" width="300">
 
   This mode together with these tools can be used to dump the rom, make backups, flash the rom and many other things
   
-### **BROM (bootrom) mode** used in mtkclient or spflash tool
+#### **BROM (bootrom) mode** used in mtkclient or spflash tool
   When using these 2 tools, you might want to put the phone in this mode
   To do this, hold the Owl/Heart/Qinguard button and back button and connect the device to your computer, while mtkclient or spflashtool is running
   
-  ![brom](https://github.com/user-attachments/assets/0b3f8312-71f7-4ac1-b2d1-e6e21251a2b4)
-
+ <img src="https://github.com/user-attachments/assets/0b3f8312-71f7-4ac1-b2d1-e6e21251a2b4" width="300">
+ 
+The view from mtkclient:
+ 
+ <img src="https://github.com/user-attachments/assets/f6b7e5ef-7db0-4b38-9b40-26b05f0f6661" width="300">
 
 
 ---
 
 
 
-## The keypad and buttons
+## Keypad and buttons
 
 - Pressing the **4, 7,** keys at the same time gives the same keycode as the back button. This is probably caused by how the keyboard distinguishes buttons, either by a row-column matrix or by having different resistances for each key. It could mean that the 3 keys' resistances add up to be the same as the back button's resistance.
 
@@ -267,4 +275,27 @@ Fastboot mode is used for flashing firmware, unlocking the bootloader, and check
 
          Notice how the /dev/input/event**X** differs depending on the keys. From this we know that the **power button** and the **Owl/Heart/Qinguard button** are both handled differently than the rest.
       
-    - **Third discovery:**  
+    - **Third discovery:**
+
+## Software
+   The software on the phone may vary. What i present here is based on the **Original Factory ROM** Build number 2.3.6, which is the newest as of March 2025.
+   It conains a lot of bloatware and possibly spyware, some of it can be removed **without root** while removing others **does require root.**
+   Some of the system apps **can** be deleted and the phone will still function while others **cannot** be removed!
+### Preinstalled apps
+   A list of apps installed by default which aren't part of Android or MTK apps:
+```
+    - com.baidu.map.location         : NetworkLocation          /system/app/Baidu_Location/Baidu_Location.apk
+    - com.duoqin.inputmethod         : Voice input method       /system/priv-app/VoiceInput/VoiceInput.apk
+    - com.duoqin.inputmethod.pinyin  : (chinese characters)     /system/app/DuoqinIme/DuoqinIme.apk  
+    - com.duoqin.pinyin              : Keypad input method      /system/app/DuoqinIme_new/DuoqinIme_new.apk
+    - com.duoqin.promarket           : App Market               /system/priv-app/Market/Market.apk   
+    - com.duoqin.qweather            : Weather                  /system/app/Weather/Weather.apk
+    - com.duoqin.remoteservice       : Duoqin Remote Service    /system/priv-app/RemoteService/RemoteService.apk  
+    - com.duoqin.syncassistant       : Sync Assistant           /system/app/Baidu_Location/Baidu_Location.apk
+    - com.duoqin.translator          : Duoqin Translator        /system/app/Translator/Translator.apk
+    - com.iqqijni.dv12key            : 12Key-Keyboard           /system/app/KikaIME/KikaIME.apk
+    - com.wapi.wapicertmanager       : WAPI certificate         /system/priv-app/WapiCertManager/WapiCertManager.apk
+```
+#### Be careful when removing!
+   Most of this is useless and can be removed with the device still booting **EXCEPT FOR THE WEATHER APP!**\
+   This <ins>wasn't tested by me</ins> but people reported the phone **entering a bootloop** after removing the weather app!
