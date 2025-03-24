@@ -14,7 +14,15 @@
 - [Keypad and buttons](#keypad-and-buttons)
 - [Software](#software)
     - [Preinstalled apps](#preinstalled-apps)
-    - [Debloating the system](#debloating-the-system)
+- [Debloating the system](#debloating-the-system)
+- [Hacking the device](#hacking-the-device)
+    - [Disclaimer](#before-you-start)
+    - [Making a full backup](#making-a-full-backup)
+    - [Rooting](#rooting)
+    - [Modifing the /system partition](#modifing-the-system-partition)
+    - [Debloating](#debloating)
+    - [Installing GAPPS](#installing-gapps)
+    - [Installing custom ROMs](#installing-custom-roms)
       
 ## Disclaimer
 I am an amateur, and everything I say here should be taken with a grain of salt. The information presented here was gathered through my research and from the amazing [XDA Forums](https://xdaforums.com/)! I do not take responsibility for bricking your device, losing your data, or any other issues that may arise. The information presented here **might not be 100% true** and some of it is my subjective opinion. If in any case I am wrong i would greatly appreciate your feedback so that everything here be a great source of info for other people.
@@ -176,7 +184,8 @@ Fastboot mode is used for flashing firmware, unlocking the bootloader, and check
   fastboot set_active a
   fastboot set_active b
   ```
-#### **Preloader mode** used in mtkclient or spflash tool
+#### **Preloader mode**
+  It is used in mtkclient or spflash tool
   When using these 2 tools, you might want to put the phone in this mode
   To do this, simply connect the phone to your computer with a USB cable when the tool is running without pressing any keys.
   This should put the phone in preloader mode.
@@ -187,7 +196,8 @@ Fastboot mode is used for flashing firmware, unlocking the bootloader, and check
 
   This mode together with these tools can be used to dump the rom, make backups, flash the rom and many other things
   
-#### **BROM (bootrom) mode** used in mtkclient or spflash tool
+#### **BROM (bootrom) mode**
+  It is used in mtkclient or spflash tool
   When using these 2 tools, you might want to put the phone in this mode
   To do this, hold the Owl/Heart/Qinguard button and back button and connect the device to your computer, while mtkclient or spflashtool is running
   
@@ -275,54 +285,113 @@ The view from mtkclient:
          ```
 
          Notice how the /dev/input/event**X** differs depending on the keys. From this we know that the **power button** and the **Owl/Heart/Qinguard button** are both handled differently than the rest.
+
       
-    - **Third discovery:**
+---
+
+
+
+## Software
+The software on the phone may vary. What I present here is based on the **Original Factory ROM** Build number 2.3.6, which is the newest as of March 2025.  
+It contains a lot of bloatware and possibly spyware. Some of it can be removed **without root**, while removing others **does require root**.  
+Some system apps **can** be deleted and the phone will still function, while others **cannot** be removed!
+
+### Preinstalled Apps
+A list of apps installed by default that aren't part of Android or MTK apps:
+
+```
+- com.baidu.map.location         : NetworkLocation          /system/app/Baidu_Location/Baidu_Location.apk
+- com.duoqin.inputmethod         : Voice input method       /system/priv-app/VoiceInput/VoiceInput.apk
+- com.duoqin.inputmethod.pinyin  : (Chinese characters)     /system/app/DuoqinIme/DuoqinIme.apk  
+- com.duoqin.pinyin              : Keypad input method      /system/app/DuoqinIme_new/DuoqinIme_new.apk
+- com.duoqin.promarket           : App Market               /system/priv-app/Market/Market.apk   
+- com.duoqin.qweather            : Weather                  /system/app/Weather/Weather.apk
+- com.duoqin.remoteservice       : Duoqin Remote Service    /system/priv-app/RemoteService/RemoteService.apk  
+- com.duoqin.syncassistant       : Sync Assistant           /system/app/Baidu_Location/Baidu_Location.apk
+- com.duoqin.translator          : Duoqin Translator        /system/app/Translator/Translator.apk
+- com.iqqijni.dv12key            : 12Key-Keyboard           /system/app/KikaIME/KikaIME.apk
+- com.wapi.wapicertmanager       : WAPI certificate         /system/priv-app/WapiCertManager/WapiCertManager.apk
+```
+
+#### Be Careful When Removing!
+Most of this is useless and can be removed with the device still booting **EXCEPT FOR THE WEATHER APP!**  
+This <ins>wasn't tested by me</ins>, but people reported the phone **entering a bootloop** after removing the weather app!
+## Debloating the System
+There are multiple ways to debloat the system or delete the apps:
+### **Disabling Some of the Apps**
+It's not possible to uninstall the bloatware, but you can disable some of the apps in the settings. You can also strip them of background data permissions and other permissions, but they will technically still be there. This **does not** require root but isn't very effective.
+### **Uninstalling the Apps with a Debloater**
+You can uninstall all the apps **if your phone is rooted** using a system app remover/debloater like [this one](https://github.com/sunilpaulmathew/De-Bloater). However, for me, they only seemed to be removed temporarily but actually stayed there like nothing happened. This was very irritating. It might be just me using the app incorrectly, but I think it **isn't the best option**, considering that you **already need root to do this**.
+### **Uninstalling the Apps with ADB**
+On a normal Android device, you could uninstall system apps like this:
+```
+adb shell
+su
+pm uninstall -k --user 0 <package-name>
+```
+This does not work for this phone, though 🙂. Whenever any `pm` command is sent, it just says:
+```
+Failure
+```
+It seems like the `pm` command was deliberately modified by the manufacturer to not work. Either way, this method **would require root**.
+### **Manually Removing Apps**
+You can remove apps from the filesystem if your phone is rooted. For example:
+```
+adb shell
+su
+rm /system/path/to/an/app -r
+```
+You would need to first find the path, but this way, the app will literally cease to exist. This is my preferred method 🙂. Of course, you will **need root** for this.
+
 
 ---
 
-## Software
-   The software on the phone may vary. What i present here is based on the **Original Factory ROM** Build number 2.3.6, which is the newest as of March 2025.\
-   It conains a lot of bloatware and possibly spyware, some of it can be removed **without root** while removing others **does require root.**\
-   Some of the system apps **can** be deleted and the phone will still function while others **cannot** be removed!
-### Preinstalled apps
-   A list of apps installed by default which aren't part of Android or MTK apps:
-```
-    - com.baidu.map.location         : NetworkLocation          /system/app/Baidu_Location/Baidu_Location.apk
-    - com.duoqin.inputmethod         : Voice input method       /system/priv-app/VoiceInput/VoiceInput.apk
-    - com.duoqin.inputmethod.pinyin  : (chinese characters)     /system/app/DuoqinIme/DuoqinIme.apk  
-    - com.duoqin.pinyin              : Keypad input method      /system/app/DuoqinIme_new/DuoqinIme_new.apk
-    - com.duoqin.promarket           : App Market               /system/priv-app/Market/Market.apk   
-    - com.duoqin.qweather            : Weather                  /system/app/Weather/Weather.apk
-    - com.duoqin.remoteservice       : Duoqin Remote Service    /system/priv-app/RemoteService/RemoteService.apk  
-    - com.duoqin.syncassistant       : Sync Assistant           /system/app/Baidu_Location/Baidu_Location.apk
-    - com.duoqin.translator          : Duoqin Translator        /system/app/Translator/Translator.apk
-    - com.iqqijni.dv12key            : 12Key-Keyboard           /system/app/KikaIME/KikaIME.apk
-    - com.wapi.wapicertmanager       : WAPI certificate         /system/priv-app/WapiCertManager/WapiCertManager.apk
-```
-#### Be careful when removing!
-   Most of this is useless and can be removed with the device still booting **EXCEPT FOR THE WEATHER APP!**\
-   This <ins>wasn't tested by me</ins> but people reported the phone **entering a bootloop** after removing the weather app!
 
-### Debloating the system
-   There are multiple ways one might try to debloat the system or deleting the apps:\
-           -**Disabling some of the apps:** it's not possible to uninstall the bloatware but you can disable some of the apps\
-                in the settings. You can also strip them from background data permision and other permissions but they will\
-                technically still be there. This **does not** require root but isn't very effective.~\
-           -**Uninstalling the apps with a debloater:** you can uninstall all the apps **if your phone is rooted** using a
-               system app remover/debloater like [this one](https://github.com/sunilpaulmathew/De-Bloater) which can work for some apps but for me, they only seemed to be removed\
-               it might be just me using the app in a wrong way but i think it isn't the best option considering that you **already need root to do this**\
-           -**Uninstalling the apps with adb:** in a normal android device you could uninstall system apps like this:
+## Hacking the device
+### Before you start
+   Now that you know a lot of technical details of the system you can try to hack it.\
+   There are many things you can do but no matter what you try **you should be very careful**\
+   as everything I talk about past this point **<ins>may</ins> lead to you bricking your device**
+   
+### Making a full backup
+Before doing **anything** you want to make sure you have a backup of your original ROM.\
+This could come **very handy** when you realise you bricked your device.
+**DO YOUR BACKUPS AND KEEP THEM SAFE!**
 
-        adb shell
-        su
-        pm uninstall -k --user 0 <package-name>
+1. To make a full device backup you will need [mtkclient](https://github.com/bkerler/mtkclient), i will be using mtkclient gui.\
+    It's a tool used for exploitation, reading/writing flash, unlocking/locking the bootloader and others.
+    
+    I **will not go into details how to install it**, you can find that on the internet.\
+    You will also need to install some drivers.
+    
+    If you do not want to play with installing everything, you can use [this ready to use ISO file](https://androidfilehost.com/?fid=15664248565197184488)\
+    You will need to boot from it (by first burning it onto a flash drive or using [ventoy](https://www.ventoy.net/en/index.html)), then select Boot Live system\
+    After it boots you will see **mtkclient gui** on the desktop and thats what I used mostly\
+    #### Either way you need to run mtkclient gui!
 
-this does not work for this phone though 🙂 Whenever any pm command is sent it just says ```Failure```. I don't know any workaround.\
-It seems like the ```pm``` command was made deliberately modified by the manufacturer to not work. Either way this method **would require root**
-            -**Manually removing apps:** you can remove apps from the filesystem if your phone is rooted. You can for example:
+2. When it's running, power off your device and connect the device in the [BROM mode](#brom-bootrom-mode)\
+    to do this, use [this](#brom-bootrom-mode).\
+    You should see the message: (If you don't, check cable, check connection, check if you have drivers, check if the usb device is recognised at all)
+
+ <img src="https://github.com/user-attachments/assets/f6b7e5ef-7db0-4b38-9b40-26b05f0f6661" width="300">
+
+3. Now we will proceed to make a full backup.\
+    Make sure you're in the **Read partition(s)** tab\
+    Press **Select all partitions**\
+    You <ins>can</ins> unselect **userdata** from the list.\
+        This would contain all user data but if your phone is factory reset there's no need to backup this\
+        If it isn't factory reset and you have some data that you want to backup, then leave the box checked\
         
-        adb shell
-        su
-        rm /system/path/to/an/app -r
+        Either way I am not 100% sure if you can save userdata after flashing other ROMs etc. because this partition is encrypted\
+        This means that if somehow the decryption keys are lost (and I do not know where they are stored) it will not dectypt it, making you lose data.\
+        So if you're planning to flash other ROMs, you probably will lose userdata.
+    Make sure **Dump GPT** is enabled\
+    Press **Read Partition(s)**. You might be prompted for output directory, select a safe place to store the backup
+    Click okay and now it should dump all the selected partitions.
+    Dont touch anything, don't move the cable and wait for it to do its thing
 
-You would need to first find the path, but this way the app will literally cease to exist. This is my prefered method 🙂 Of course you will **need root** for this.
+### Rooting
+### Modifing the /system partition
+### Debloating
+### Installing GAPPS
+### Installing custom ROMs
