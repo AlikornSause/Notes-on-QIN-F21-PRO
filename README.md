@@ -14,7 +14,8 @@
 - [Keypad and buttons](#keypad-and-buttons)
 - [Software](#software)
     - [Preinstalled apps](#preinstalled-apps)
-
+    - [Debloating the system](#debloating-the-system)
+      
 ## Disclaimer
 I am an amateur, and everything I say here should be taken with a grain of salt. The information presented here was gathered through my research and from the amazing [XDA Forums](https://xdaforums.com/)! I do not take responsibility for bricking your device, losing your data, or any other issues that may arise. The information presented here **might not be 100% true** and some of it is my subjective opinion. If in any case I am wrong i would greatly appreciate your feedback so that everything here be a great source of info for other people.
 
@@ -277,9 +278,11 @@ The view from mtkclient:
       
     - **Third discovery:**
 
+---
+
 ## Software
-   The software on the phone may vary. What i present here is based on the **Original Factory ROM** Build number 2.3.6, which is the newest as of March 2025.
-   It conains a lot of bloatware and possibly spyware, some of it can be removed **without root** while removing others **does require root.**
+   The software on the phone may vary. What i present here is based on the **Original Factory ROM** Build number 2.3.6, which is the newest as of March 2025.\
+   It conains a lot of bloatware and possibly spyware, some of it can be removed **without root** while removing others **does require root.**\
    Some of the system apps **can** be deleted and the phone will still function while others **cannot** be removed!
 ### Preinstalled apps
    A list of apps installed by default which aren't part of Android or MTK apps:
@@ -299,3 +302,27 @@ The view from mtkclient:
 #### Be careful when removing!
    Most of this is useless and can be removed with the device still booting **EXCEPT FOR THE WEATHER APP!**\
    This <ins>wasn't tested by me</ins> but people reported the phone **entering a bootloop** after removing the weather app!
+
+### Debloating the system
+   There are multiple ways one might try to debloat the system or deleting the apps:\
+           -**Disabling some of the apps:** it's not possible to uninstall the bloatware but you can disable some of the apps\
+                in the settings. You can also strip them from background data permision and other permissions but they will\
+                technically still be there. This **does not** require root but isn't very effective.
+           -**Uninstalling the apps with a debloater:** you can uninstall all the apps **if your phone is rooted** using a
+               system app remover/debloater like [this one](https://github.com/sunilpaulmathew/De-Bloater) which can work for some apps but for me, they only seemed to be removed\
+               it might be just me using the app in a wrong way but i think it isn't the best option considering that you **already need root to do this**\
+           -**Uninstalling the apps with adb:** in a normal android device you could uninstall system apps like this:
+
+        adb shell
+        su
+        pm uninstall -k --user 0 <package-name>
+
+this does not work for this phone though 🙂 Whenever any pm command is sent it just says ```Failure```. I don't know any workaround.\
+It seems like the ```pm``` command was made deliberately modified by the manufacturer to not work. Either way this method **would require root**
+            -**Manually removing apps:** you can remove apps from the filesystem if your phone is rooted. You can for example:
+        
+        adb shell
+        su
+        rm /system/path/to/an/app -r
+
+You would need to first find the path, but this way the app will literally cease to exist. This is my prefered method 🙂 Of course you will **need root** for this.
