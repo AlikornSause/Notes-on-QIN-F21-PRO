@@ -347,6 +347,103 @@ rm /system/path/to/an/app -r
 You would need to first find the path, but this way, the app will literally cease to exist. This is my preferred method 🙂. Of course, you will **need root** for this.
 
 
+
+## Original ROM unpacked
+It's posssible to unpack the original ROM provided by the manufacturer.\
+I did this by first [doing a backup](#making-a-full-backup) (rom dump).\
+This left me with a folder with many .bin files:
+
+<img src="https://github.com/user-attachments/assets/1b332f5f-9d1f-45c0-82c4-28bf610d63da" width="800">
+
+**Here's the list of them, explained briefly (I skipped A/B versions like boot_a.bin and boot_b.bin as they are ussually copies)**
+
+```
+boot_a.bin:                        These partitions contain the boot image, including the kernel and ramdisk, essential for booting the device.
+boot_para.bin:                     Would likely store boot parameters or configuration data but is empty.​
+dtbo_a.bin:                        Contains the Device Tree Blob Overlay, which provides hardware configuration data to the kernel.
+expdb.bin:                         Seems to contain some boot logs.
+flashinfo.bin:                     May hold information about the flash storage but is mostly empty
+frp.bin:                           Should store Factory Reset Protection data but is almost empty.
+gpt_backup.bin / gpt.bin:          These files represent the GUID Partition Table (GPT) and its backup, defining the partition layout on the storage device.​
+gz_a.bin:                          Could be related to the 'gz' partition, possibly containing the Gzip-compressed kernel. For me it is completely empty though.
+lk_a.bin:                          Contains the Little Kernel bootloader, responsible for initializing hardware and starting the main kernel.
+logo.bin:                          Holds the boot logo displayed during device startup.​
+md_udc.bin:                        Unknown, mostly empty
+md1img_a.bin:                      Seems to store modem firmware images, crucial for cellular communication. 
+metadata.bin:                      Unknown, empty file
+nvcfg.bin:                         Likely holds NV (Non-Volatile) configuration data, such as radio or network settings.​
+nvdata.bin:                        Stores NV (Non-Volatile) data, which may include IMEI numbers, calibration data, and other persistent settings.​
+nvram.bin:                         Contains Non-Volatile RAM data, essential for storing persistent system settings and configurations.​
+otp.bin:                           Unknown, empty file
+para.bin:                          Unknown, almost empty file
+proinfo.bin:                       Contains the serial number and some hardware information. Almost empty
+protect1.bin:                      Unknown, contains some data
+scp_a.bin:                         Unknown, contains a lot of binary data and some readable strings.
+sec1.bin:                          Unknown, empty file
+seccfg.bin:                        Likely contains security configuration settings for the device.​ Mostly empty file
+spmfw_a.bin:                       Could be related to the System Power Management Firmware. Contains some code but is mostlu empty
+sspm_a.bin:                        Unknown, contains the string tinysys-sspm at the beggining.
+super.bin:                         Contains the system etc.
+tee_a.bin:                         Unknown.
+userdata.bin:                      Stores user data, including installed applications and personal files.​
+vbmeta_a.bin:                      Contain Verified Boot metadata, used for veryfing image before booting.
+vbmeta_system_a.bin:               Seems to store some system metadata like com.android.build.product.security_patch
+vbmeta_vendor_a.bin:               Seems to store some system metadata like com.android.build.product.security_patch
+vendor_boot_a.bin:                 Unknown, empty file.
+[read preloader]boot1.bin:         Contains the preloader or initial bootloader code, responsible for early hardware initialization before handing control forward.
+```
+
+**For me the most interesting files will be:**
+   - boot_a.bin
+   - super.bin
+   - lk_a.bin
+   - logo.bin
+
+I will try to unpack each of them and then maybe try to modify later.
+
+## boot_a.bin
+This file contains the **boot image** including the **kernel** and the **ramdisk**.\
+We can unpack it using the amazing [Android Image Kitchen](https://xdaforums.com/t/tool-android-image-kitchen-unpack-repack-kernel-ramdisk-win-android-linux-mac.2073775/).\
+When we have the Android Image Kitchen ready, simply **drag and drop** your **boot_a.bin** onto **unpackimg.bat**
+
+![image](https://github.com/user-attachments/assets/731e9d06-5fb9-4a1e-b715-7eecc1a6fa36)
+
+We will now have 2 new folders:
+
+![image](https://github.com/user-attachments/assets/22263e74-4754-4537-98d8-52eefaa3ba46)
+
+The **split_img** folder contains the **boot_a.bin** individual parts.
+
+![image](https://github.com/user-attachments/assets/34456fa9-109c-4845-aef3-1097054c6f5f)
+
+The most interesting files are **boot_a.bin-kernel** and **boot_a.bin-ramdisk.cpio.gz**\
+The first one, of course is the **kernel** and contains just binary data.\
+The second one contains the **ramdisk** and can be <ins>opened</ins>.\
+But <ins> this </ins> was already done for us and the ramdisk contents are already in the **ramdisk** folder.
+
+![image](https://github.com/user-attachments/assets/c20fe1a4-5f5a-420a-8c20-9b961ba5f3b5)
+
+Folders that are empty were marked with **red**.\
+They are mostly folders that will be **mountpoints**,\
+or will contain **processes, devices etc** when the system is running.\
+
+Folders that are marked with **green** contain various things.\
+They contain various files:
+   - libraries
+   - binaries
+   - fstab configs
+   - init files
+   - images
+   - others
+
+
+![image](https://github.com/user-attachments/assets/36a05ff3-3be3-41f6-9945-da998c6cf29b)
+---
+![image](https://github.com/user-attachments/assets/ab4bace5-3cd0-40d5-aef7-6974048dfc71)
+---
+![image](https://github.com/user-attachments/assets/1fdb57a1-6b8c-45e6-bb6d-2ad9f6371b56)
+
+
 ---
 
 
