@@ -819,6 +819,11 @@ The process involves these steps:
 # Errors you can encounter
 TO BE ADDED LATER
 
+1. Bootloop when flashing patched images.
+( When testing i came across this, by flashing the original vbmeta_b.bin
+with a patched magisk boot_b.bin flashed. This resulted in the Orange State
+warning but after 5 seconds the device just rebooted. Flash the vbmeta fix file
+)
 
 
 
