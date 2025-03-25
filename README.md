@@ -74,9 +74,14 @@ The phone comes with at least three different ROM versions:
 - **Hacked Version:** Chinese + English, bootloader unlocked, Google Play present, supposedly Google certified.
 - **International ROM:** Multi-language support, bootloader unlocked, Google Play present, NOT Google certified.
 
-### Custom ROMs
+# Custom ROMs
  There are also some custom ROMs for this phone:
- - **LineageOS 18.1:** Custom ROM posted by @a9381 user on [XDA Forums here](https://xdaforums.com/t/rom-beta-unoffical-lineageos-18-1-for-xiaomi-qin-f21s-pro-by-a-i-v.4431693/), it contains some bugs such as the keypad backlight being always on, no access to /data partition by twrp, VOLTE problems and the wifi and bluetooth being on by default. These bugs seem to be fixable and possibly already fixed in the newer versions of this rom. I haven't tested it yet but it seems like a great alternative to the stock ROMs. I haven't tested this ROM yet but it is reported to work on the 32+3GB version.
+ - **LineageOS 18.1:** Custom ROM posted by @a9381 user on [XDA Forums here](https://xdaforums.com/t/rom-beta-unoffical-lineageos-18-1-for-xiaomi-qin-f21s-pro-by-a-i-v.4431693/), it contains some bugs such as the keypad backlight being always on, no access to /data partition by twrp, VOLTE problems and the wifi and bluetooth being on by default. These bugs seem to be fixable and possibly already fixed in the newer versions of this rom. I haven't tested it yet but it seems like a great alternative to the stock ROMs. I haven't tested this ROM yet but it is reported to work on the 32+3GB version.\
+
+   Update : I tested this rom on the 32+3GB version and so far it does not work.\
+   
+ - **AOSP13BETA QinF21PRO AIV:** A custom rom found on 4pda.to. I tested it but couldn't get it to work.
+   
  - **Some kosher ROMs for for the religious people from Israel** made by @Ashi Vered. You can find more info in [his GitHub page](https://github.com/AshiVered/Android-custom-ROMs).
 
     **Privacy**
@@ -730,7 +735,7 @@ You can change it to say something else.
    - But always, be very carefull when modifing this.
 
 **If the device behaves weirdly, you might have made an error when editing, try to reflash the original backup of lk**
-
+---
 ## Removing the Orange State Warning text
 **You might me annoyed by this text that appears when booting:**
 ```
@@ -747,7 +752,7 @@ This should look like this.
 Other than that, the steps with removing the text are the same as [changing it](#changing-the-orange-state-warning-text).
 
 **If the device behaves weirdly, you might have made an error when editing, try to reflash the original backup of lk**
-
+---
 ## Removing the 5 second delay in Orange State
 **You might me annoyed by the 5 second delay that slows down the booting process when in Orange State**
 It can be deleted easily and involves the same steps as [changing the orange state warning text](#changing-the-orange-state-warning-text).
@@ -798,7 +803,14 @@ TO BE ADDED LATER
 
 
 # TODO:
+Document:
 - Editing boot_a.bin
 - TWRP installation
-
+- installing gapps
+Make work:
 - /userdata decryption
+- /system auto writable mount
+- change logo.bin
+- make twrp boot image work with sound
+- make custom roms work with 32/3 version
+
