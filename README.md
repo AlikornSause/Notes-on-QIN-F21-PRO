@@ -800,3 +800,5 @@ TO BE ADDED LATER
 # TODO:
 - Editing boot_a.bin
 - TWRP installation
+
+- /userdata decryption
