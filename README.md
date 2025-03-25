@@ -5,8 +5,8 @@
 - [Device variants](#versions)
     - [Hardware variants](#hardware-versions)
     - [Software variants (ROMs)](#software-versions)
-    - [Custom ROMs](#custom-roms)
     - [Differences](#differences)
+    - [Custom ROMs](#custom-roms)
 - [Hardware modes](#hardware-modes)
     - [Normal mode](#normal-mode)
     - [Recovery mode](#recovery-mode)
@@ -38,7 +38,7 @@ It is very possible that you will encounter difficulties when rooting, flashing 
 
 
 
-## The Phone
+# The Phone
 The **Qin F21 Pro** is a half-touchscreen, half-button phone running **Android 11**. It features:
 - **2.8-inch 640 x 480px IPS capacitive touchscreen**
 - **5MP rear camera** with a **2MP front camera**
@@ -53,7 +53,7 @@ The device is available in different configurations.
 
 
 
-## Versions
+# Versions
 ### Hardware versions
 There are **two main hardware versions** of the phone:
 - **64+4GB version**
@@ -74,33 +74,33 @@ The phone comes with at least three different ROM versions:
 - **Hacked Version:** Chinese + English, bootloader unlocked, Google Play present, supposedly Google certified.
 - **International ROM:** Multi-language support, bootloader unlocked, Google Play present, NOT Google certified.
 
-# Custom ROMs
- There are also some custom ROMs for this phone:
- - **LineageOS 18.1:** Custom ROM posted by @a9381 user on [XDA Forums here](https://xdaforums.com/t/rom-beta-unoffical-lineageos-18-1-for-xiaomi-qin-f21s-pro-by-a-i-v.4431693/), it contains some bugs such as the keypad backlight being always on, no access to /data partition by twrp, VOLTE problems and the wifi and bluetooth being on by default. These bugs seem to be fixable and possibly already fixed in the newer versions of this rom. I haven't tested it yet but it seems like a great alternative to the stock ROMs. I haven't tested this ROM yet but it is reported to work on the 32+3GB version.\
-
-   Update : I tested this rom on the 32+3GB version and so far it does not work.\
-   
- - **AOSP13BETA QinF21PRO AIV:** A custom rom found on 4pda.to. I tested it but couldn't get it to work.
-   
- - **Some kosher ROMs for for the religious people from Israel** made by @Ashi Vered. You can find more info in [his GitHub page](https://github.com/AshiVered/Android-custom-ROMs).
-
-    **Privacy**
-    These stock ROMs are not to be trusted as they send weird packets directly to China.
-    Some of them were sent to NTP servers in China which isn't that weird but others point to duoqin.com, xiaomi and others.
-    A list of all URLs that are/ can be sent information:
-      - connect.rom.miui.com
-      - wifi.vivo.com.cn
-      - connectivitycheck.platform.hicloud.com
-      - cn.ntp.org.cn
-      - dq-avatar.duoqin.com
-      - loc.map.baidu.com
-    At least thats what my PCAPdroid said. I used it with root access so it should see literally everything sent from the device. I hope thats the case.
-   The privacy topic will be discussed more later in this document.
+**Privacy concerns**
+These stock ROMs are not to be trusted as they send weird packets directly to China.
+Some of them were sent to NTP servers in China which isn't that weird but others point to duoqin.com, xiaomi and others.
+A list of all URLs that are/ can be sent information:
+  - connect.rom.miui.com
+  - wifi.vivo.com.cn
+  - connectivitycheck.platform.hicloud.com
+  - cn.ntp.org.cn
+  - dq-avatar.duoqin.com
+  - loc.map.baidu.com
+<ins>At least thats what my PCAPdroid said</ins>. I used it with root access so it should see literally everything sent from the device. I hope thats the case.
+The privacy topic will be discussed more later in this document.
 
 ### Differences
 The **64+4GB version** seems to be **easier to root and install custom ROMs**. I personally have a **32+3GB black English original ROM** and have confirmed that it's possible to modify and root this version. 
 
 For hacking purposes, the **most important factor** is whether you have the **64+4GB or 32+3GB version** and whether **the bootloader is unlocked**—other differences don't matter as much.
+
+### Custom ROMs
+ There are also some custom ROMs for this phone:
+ - **LineageOS 18.1:** Custom ROM posted by @a9381 user on [XDA Forums here](https://xdaforums.com/t/rom-beta-unoffical-lineageos-18-1-for-xiaomi-qin-f21s-pro-by-a-i-v.4431693/), it contains some bugs such as the keypad backlight being always on, no access to /data partition by twrp, VOLTE problems and the wifi and bluetooth being on by default. These bugs seem to be fixable and possibly already fixed in the newer versions of this rom. I haven't tested it yet but it seems like a great alternative to the stock ROMs. I haven't tested this ROM yet but it is reported to work on the 32+3GB version.
+<br>
+   Update : I tested this rom on the 32+3GB version and so far it does not work.
+   
+ - **AOSP13BETA QinF21PRO AIV:** A custom rom found on 4pda.to. I tested it but couldn't get it to work.
+   
+ - **Some kosher ROMs for for the religious people from Israel** made by @Ashi Vered. You can find more info in [his GitHub page](https://github.com/AshiVered/Android-custom-ROMs).
 
 
 
@@ -108,15 +108,17 @@ For hacking purposes, the **most important factor** is whether you have the **64
 
 
 
-## Hardware Modes
+# Hardware Modes
 The phone can be booted into several modes, all of which require the device to be **TURNED OFF**.
 
-#### **Normal Mode**
+### **Normal Mode**
 Entered by pressing the **power button** for a few seconds until the logo appears.
 
-<img src="https://github.com/user-attachments/assets/fd88e24c-d9e9-4881-8113-91b7e388cf6f" width="300">
+<img src="https://github.com/user-attachments/assets/fd88e24c-d9e9-4881-8113-91b7e388cf6f" width="200">
 
-#### **Recovery Mode**
+---
+
+### **Recovery Mode**
 Entered by holding down the following buttons:
 - **Owl/Heart/Qinguard button**
 - **Power/Hangup button**
@@ -129,25 +131,25 @@ Alternatively, you can enter this mode using:
 adb reboot bootloader
 ```
 
-<img src="https://github.com/user-attachments/assets/85496ee0-80f1-4552-ac21-1b2465d80fcf" width="300">
+<img src="https://github.com/user-attachments/assets/85496ee0-80f1-4552-ac21-1b2465d80fcf" width="200">
 
 After entering Recovery Mode, you will see this screen:
 
-<img src="https://github.com/user-attachments/assets/51cc821b-59e7-48a0-a0bd-fc692de65811" width="300">
+<img src="https://github.com/user-attachments/assets/51cc821b-59e7-48a0-a0bd-fc692de65811" width="200">
 
 To enter the menu, **hold down the power/hangup button and press the up button on the "joystick"**:
 
-<img src="https://github.com/user-attachments/assets/c80d086b-f327-4733-b43a-26f6bcef1f44" width="300">
+<img src="https://github.com/user-attachments/assets/c80d086b-f327-4733-b43a-26f6bcef1f44" width="200">
 
 You will then see this menu:
 
-<img src="https://github.com/user-attachments/assets/243b470e-849d-4587-ae87-5ba379ebf61d" width="300">
+<img src="https://github.com/user-attachments/assets/243b470e-849d-4587-ae87-5ba379ebf61d" width="200">
 
-##### **Navigation**
+#### **Navigation**
 - Use the **joystick buttons** to navigate.
 - Use the **power button** to select.
 
-##### **Recovery Menu Options**
+#### **Recovery Menu Options**
 - **Reboot to system now:** Reboots into normal mode.
 - **Reboot to bootloader:** Reboots into fastboot mode.
 - **Enter fastboot:** Enters fastbootd mode with options to reboot, return to recovery, enter fastboot, or power off. This mode can also be accessed via:```adb reboot fastboot```.
@@ -162,7 +164,9 @@ You will then see this menu:
 
 This mode could be useful, but I am not sure exactly how. It **can** be used to enter **fastboot mode**, which is very useful for flashing and modifications.
 
-#### **Fastboot/Bootloader Mode**
+---
+
+### **Fastboot/Bootloader Mode**
 Fastboot mode can be entered in multiple ways:
 - From the **Recovery Menu** (as mentioned above)
 - Using ADB:
@@ -175,9 +179,9 @@ Fastboot mode can be entered in multiple ways:
   ```
   *(This did not work for me, but it is reported to work)*
 
-<img src="https://github.com/user-attachments/assets/d2637828-6242-426c-b2c8-bc555096ebe2" width="300">
+<img src="https://github.com/user-attachments/assets/d2637828-6242-426c-b2c8-bc555096ebe2" width="200">
 
-##### **Fastboot Commands**
+#### **Fastboot Commands**
 Fastboot mode is used for flashing firmware, unlocking the bootloader, and checking/modifying partitions.
 - **Check current slot:**
   ```sh
@@ -192,7 +196,10 @@ Fastboot mode is used for flashing firmware, unlocking the bootloader, and check
   fastboot set_active a
   fastboot set_active b
   ```
-#### **Preloader mode**
+  
+  ---
+
+### **Preloader mode**
   It is used in mtkclient or spflash tool
   When using these 2 tools, you might want to put the phone in this mode
   To do this, simply connect the phone to your computer with a USB cable when the tool is running without pressing any keys.
@@ -204,12 +211,14 @@ Fastboot mode is used for flashing firmware, unlocking the bootloader, and check
 
   This mode together with these tools can be used to dump the rom, make backups, flash the rom and many other things
   
-#### **BROM (bootrom) mode**
+---
+  
+### **BROM (bootrom) mode**
   It is used in mtkclient or spflash tool
   When using these 2 tools, you might want to put the phone in this mode
   To do this, hold the Owl/Heart/Qinguard button and back button and connect the device to your computer, while mtkclient or spflashtool is running
   
- <img src="https://github.com/user-attachments/assets/0b3f8312-71f7-4ac1-b2d1-e6e21251a2b4" width="300">
+ <img src="https://github.com/user-attachments/assets/0b3f8312-71f7-4ac1-b2d1-e6e21251a2b4" width="200">
  
 The view from mtkclient:
  
@@ -299,7 +308,7 @@ The view from mtkclient:
 
 
 
-## Software
+# Software
 The software on the phone may vary. What I present here is based on the **Original Factory ROM** Build number 2.3.6, which is the newest as of March 2025.  
 It contains a lot of bloatware and possibly spyware. Some of it can be removed **without root**, while removing others **does require root**.  
 Some system apps **can** be deleted and the phone will still function, while others **cannot** be removed!
@@ -351,7 +360,7 @@ rm /system/path/to/an/app -r
 ```
 You would need to first find the path, but this way, the app will literally cease to exist. This is my preferred method 🙂. Of course, you will **need root** for this.
 
-
+---
 
 ## Original ROM unpacked
 It's posssible to unpack the original ROM provided by the manufacturer.\
@@ -373,7 +382,7 @@ gpt_backup.bin / gpt.bin:          These files represent the GUID Partition Tabl
 gz_a.bin:                          Could be related to the 'gz' partition, possibly containing the Gzip-compressed kernel. For me it is completely empty though.
 lk_a.bin:                          Contains the Little Kernel bootloader, responsible for initializing hardware and starting the main kernel.
 logo.bin:                          Holds the boot logo displayed during device startup.​
-md_udc.bin:                        Unknown, mostly empty
+md_udc.bin:                        I belive it contains the userdata partition decryption keys altough it is mostly empty
 md1img_a.bin:                      Seems to store modem firmware images, crucial for cellular communication. 
 metadata.bin:                      Unknown, empty file
 nvcfg.bin:                         Likely holds NV (Non-Volatile) configuration data, such as radio or network settings.​
@@ -430,10 +439,10 @@ But <ins> this </ins> was already done for us and the ramdisk contents are alrea
 
 Folders that are empty were marked with **red**.\
 They are mostly folders that will be **mountpoints**,\
-or will contain **processes, devices etc** when the system is running.\
+or will contain **processes, devices etc** when the system is running.
 
-Folders that are marked with **green** contain various things.\
-They contain various files:
+Folders that are marked with **green** contain various files.
+These include:
    - libraries
    - binaries
    - fstab configs
@@ -481,8 +490,12 @@ If you do not want to install everything manually, you can use this **[ready-to-
 4. After booting, you will see **mtkclient GUI** on the desktop. This is what I used mostly.
 <img src="https://github.com/user-attachments/assets/8697a9f8-c64c-4d28-8930-8165ca1b9615" width="300">
 
-#### Either way, you need to run **mtkclient GUI**!
-<br><br>
+<br>
+
+### Either way, you need to run **mtkclient GUI**!
+
+<br>
+
 ### Steps to Make a Backup
 1. Run **mtkclient GUI**.
 2. Power off your device and connect it in **[BROM mode](#brom-bootrom-mode)**. Alternatively, you can try to do the same in [preloader mode](#preloader-mode).
@@ -518,7 +531,7 @@ If you do not want to install everything manually, you can use this **[ready-to-
      Again, **keep them safe**
 5. Now, we will backup the **Preloader**\
     I am not yet sure if this is essential but it doesn't hurt to backup it anyway\
-    If you backup it, you might then **unbrick your device easier** so it is worth it\
+    If you backup it, you might then **unbrick your device easier** so it is worth it
    - Open the **Flash Tools** tab.
    - Click **Read preloader**
    - Select a safe place to store it.
@@ -576,7 +589,7 @@ Note: This tutorial is based on [this](https://xdaforums.com/t/guide-xiaomi-qin-
 8. **Copy the patched boot image** back to your computer using a cable or ```adb pull```
    - This file will need to be flashed as **boot_a** or **boot_b** partition using mtkclient.
    - For this, you need to copy it from the device to the computer.
-   - **You should change the file extension to .bin** so that mtkclient recognises it.
+   - **You should change the file extension to .bin** so that mtkclient recognizes it.
 
 9. **Run mtkclient gui and unlock the bootloader**
    - Power off your device and connect it in BROM mode to mtclient.
@@ -595,7 +608,7 @@ Note: This tutorial is based on [this](https://xdaforums.com/t/guide-xiaomi-qin-
       Press power button to continue.
       Or, device will power off in 5s
       ```
-      I think it's caused by the bootloader not accepting the boot image, because it can't verify it.\
+      I think it's caused by the bootloader not accepting the boot image, because it can't verify it.
     - Some people suggested that flashing an empty file instead of this vbmeta file works but **I can't advise that, as it didn't work for me**
     - It did not work for me because it probably didn't even flash the file. The mtkclient gui kept freezing when flashing an empty file.
     - It might be that the empty file is just not accepted and it declines and freezes.
@@ -625,7 +638,7 @@ Note: This tutorial is based on [this](https://xdaforums.com/t/guide-xiaomi-qin-
     - You should see an **Orange state warning**. This is **normal**. It means the bootloader is unlocked.
     - The message should not be worrying. The phone will boot in 5 seconds.
     - The message can also be [changed](#changing-the-orange-state-warning-text) or [removed](#removing-the-orange-state-warning-text).
-    - The 5 second delay can albo be removed.
+    - The 5 second delay can albo be [removed](#removing-the-5-second-delay-in-orange-state).
 
 14. **Your phone should now be rooted!**
     - After powering on, launch the magisk app. You should see a screen similar to this:
@@ -639,7 +652,8 @@ Note: This tutorial is based on [this](https://xdaforums.com/t/guide-xiaomi-qin-
 **BE CAREFUL!** When editing the /system partition you can delete crucial system files and brick your device!
 <br><br>
 If your device is already rooted you can edit anything on the /system partition.\
-The steps todo this:
+
+The steps to do this:
 1. You need to get a root shell. This can be done through a terminal app or through adb.
    - If you want to use a terminal app you will need to grant superuser permission when using it.\
      To do this, simply open up a command line [(termux)](https://github.com/termux/termux-app) or something similar and type in:
@@ -648,14 +662,15 @@ The steps todo this:
      ```
      This will prompt for superuser permission if you have working magisk root. Grant this permission.\
      Now you have a root shell on your device. This can be seen as a **#** at the end of your command prompt instead of a **$**
+     
    - If you want to use adb, run:
      ```
      adb shell
      su
      ```
      You will probably be also prompted for superuser permission. **It might also require enabling adb root access in magisk settings**.\
-     Now you have a root shell using adb.\
-     This can be seen as a **#** at the end of your command prompt instead of a **$**\
+     Now you have a root shell using adb. This can be seen as a **#** at the end of your command prompt instead of a **$**
+     
      Note: This is **NOT** the same as doing ```adb root```, which is only available on test builds and would require some tweaking to work on this device
 
 2. Remount the /system partition:
@@ -664,7 +679,7 @@ The steps todo this:
    ```
    This will make the /system partition writable.
    
-3. You can modify anything as long **as you are root**. After a reboot you will need to remount it again\\
+3. You can modify anything as long **as you are root**. After a reboot you will need to remount it again\
    **BE CAREFUL!** When editing the /system partition you can delete crucial system files and brick your device!
 
 
@@ -708,31 +723,36 @@ You can change it to say something else.
 
 4. **Edit the string**
    - Now you can edit the string **BUT BE VERY CAREFUL!**.
-   - You **shouldn't add** any text but **overwrite** the text that's already in there.
+   - You **shouldn't add** any text but **overwrite** the text to be displayed that's already in there.
    - It should look something like this.
      
      ![image](https://github.com/user-attachments/assets/cbca998f-463e-4090-8b92-ccb0e69922d6)
 
-   - Notice how I zeroed the rest of the bytes that i didn't want any text in.
-   - You **don't want** to put spaces there but rather empty so ```00```.
+   - Notice how I zeroed the rest of the text area and didn't put spaces in there.
+   - Make sure you **don't** put 0 as a character because it will display 0's on the screen.
+   - Make sure you **don't** put spaces in there.
+   - Put ```00```'s in **HEX** and **not** "0"s as characters!
 
 5. **MAKE SURE you didn't overwrite anything**
    - You have to be sure that you didn't overwrite anything that was in there.
    - You can **only overwrite the text that would be displayed**.
-   - Make sure it together with the ```00's``` is the same length.
+   - Make sure the text you put there together with the ```00's``` isn't longer than the original text.
+   - **You really shouldn't overwrite anything other than the text displayed!**
      
 6. **Save the file somewhere else as lk.bin**
    - Make sure **not to overwrite your backup file!**
      
 7. **Flash the file**
    - Flash the file to either ```lk_a``` or ```lk_b``` partitions **depending on which slot is active**
-   - You should do the flashing the same way as in [here](#rooting) point 11.
+   - You should do the flashing the same way as in [here](#rooting) point 11 using mtkclient.
    - Again, **make sure you only overwrite the lk_a or lk_b**.
+     
 8. **Reboot**
    - If done corectly, the text should be changed accordingly 🙂
    - This can also be used to change other strings.
-   - This includes the **Red state**.
-   - But always, be very carefull when modifing this.
+   - This includes the **Red state** warning and other warnings.
+   - The process should be very similar although **I haven't tested that**.
+   - But always, be **very carefull** when modifing these files.
 
 **If the device behaves weirdly, you might have made an error when editing, try to reflash the original backup of lk**
 ---
