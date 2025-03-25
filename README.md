@@ -793,3 +793,10 @@ The process involves these steps:
 
 # Errors you can encounter
 TO BE ADDED LATER
+
+
+
+
+# TODO:
+- Editing boot_a.bin
+- TWRP installation
