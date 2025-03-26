@@ -22,14 +22,10 @@ It is very possible that you will encounter difficulties when rooting, flashing 
 - [Keypad and buttons](#keypad-and-buttons)
 - [Software](#software)
     - [Preinstalled apps](#preinstalled-apps)
-- [Debloating the system](#debloating-the-system)
-    - [Disabling some of the apps, NO ROOT](#disabling-some-of-the-apps)
-    - [Uninstalling the apps with a debloater, ROOT](#uninstalling-the-apps-with-a-debloater)
-    - [Uninstalling the apps with ADB, ROOT](#uninstalling-the-apps-with-adb)
-    - [Manually removing apps, ROOT](#manually-removing-apps)
 - [Hacking the device](#hacking-the-device)
     - [Disclaimer](#before-you-start)
     - [Making a full backup](#making-a-full-backup)
+    - [Unpacking the original ROM](#unpacking-the-original-rom)
     - [Rooting](#rooting)
     - [Modifying the /system partition](#modifying-the-system-partition)
     - [Debloating](#debloating)
@@ -337,36 +333,102 @@ A list of apps installed by default that aren't part of Android or MTK apps:
 #### Be Careful When Removing!
 Most of this is useless and can be removed with the device still booting **EXCEPT FOR THE WEATHER APP!**  
 This <ins>wasn't tested by me</ins>, but people reported the phone **entering a bootloop** after removing the weather app!
-## Debloating the System
-There are multiple ways to debloat the system or delete the apps:
-### **Disabling Some of the Apps**
-It's not possible to uninstall the bloatware, but you can disable some of the apps in the settings. You can also strip them of background data permissions and other permissions, but they will technically still be there. This **does not** require root but isn't very effective.
-### **Uninstalling the Apps with a Debloater**
-You can uninstall all the apps **if your phone is rooted** using a system app remover/debloater like [this one](https://github.com/sunilpaulmathew/De-Bloater). However, for me, they only seemed to be removed temporarily but actually stayed there like nothing happened. This was very irritating. It might be just me using the app incorrectly, but I think it **isn't the best option**, considering that you **already need root to do this**.
-### **Uninstalling the Apps with ADB**
-On a normal Android device, you could uninstall system apps like this:
-```
-adb shell
-su
-pm uninstall -k --user 0 <package-name>
-```
-This does not work for this phone, though 🙂. Whenever any `pm` command is sent, it just says:
-```
-Failure
-```
-It seems like the `pm` command was deliberately modified by the manufacturer to not work. Either way, this method **would require root**.
-### **Manually Removing Apps**
-You can remove apps from the filesystem if your phone is rooted. For example:
-```
-adb shell
-su
-rm /system/path/to/an/app -r
-```
-You would need to first find the path, but this way, the app will literally cease to exist. This is my preferred method 🙂. Of course, you will **need root** for this.
+
+
 
 ---
 
-## Original ROM unpacked
+
+
+
+# Hacking the Device
+
+## Before You Start
+Now that you know a lot of technical details about the system, you can try to hack it. There are many things you can do, but no matter what you try, **you should be very careful**, as everything past this point **<ins>may</ins> lead to you bricking your device**. All the information given by me was gathered by my research and the work of many other people. Using this information i succeded in hacking this phone but I cannot guarantee that you will succeed.
+
+Before doing **anything**, you must make a backup of your original ROM. This could be **very useful** if you accidentally brick your device.
+> **DO YOUR BACKUPS AND KEEP THEM SAFE!**
+
+---
+
+## Making a Full Backup
+
+### Requirements
+To make a full device backup, you will need [mtkclient](https://github.com/bkerler/mtkclient). I will be using **mtkclient GUI**. It's a tool used for:
+- Exploitation
+- Reading/Writing flash
+- Unlocking/Locking the bootloader
+- And more
+
+I **will not go into details on how to install it**. You can find installation guides on the internet. You will also need to install the necessary drivers.
+
+#### Alternative Method
+If you do not want to install everything manually, you can use this **[ready-to-use ISO file](https://androidfilehost.com/?fid=15664248565197184488)**:
+1. Burn the ISO onto a flash drive or use [Ventoy](https://www.ventoy.net/en/index.html).
+2. Boot from the USB drive.
+3. Select **Boot Live System**.
+4. After booting, you will see **mtkclient GUI** on the desktop. This is what I used mostly.
+<img src="https://github.com/user-attachments/assets/8697a9f8-c64c-4d28-8930-8165ca1b9615" width="300">
+
+<br>
+
+### Either way, you need to run **mtkclient GUI**!
+
+<br>
+
+### Steps to Make a Backup
+1. Run **mtkclient GUI**.
+2. Power off your device and connect it in **[BROM mode](#brom-bootrom-mode)**. Alternatively, you can try to do the same in [preloader mode](#preloader-mode).
+   - To enter BROM mode, follow [this guide](#brom-bootrom-mode).
+   - If successful, you should see a confirmation message.
+     
+     <img src="https://github.com/user-attachments/assets/f6b7e5ef-7db0-4b38-9b40-26b05f0f6661" width="300">
+        
+   - If not, check:
+     - Your cable
+     - Your connection
+     - Whether you have the correct drivers installed
+     - If the USB device is recognized at all
+
+
+3. Proceed with the backup:
+   - Open the **Read partition(s)** tab.
+   - Click **Select all partitions**.
+   - You <ins>can</ins> unselect **userdata** from the list:
+     - This partition contains user data. If your phone is factory reset, there is no need to back this up.
+     - If your phone is not factory reset and you want to keep your data, leave the box checked.
+     - However, be aware that **userdata is encrypted**.
+     - If the decryption keys are lost (their location is unknown to me), you may not be able to decrypt it later, resulting in data loss.
+     - If you are flashing other ROMs, assume you will lose userdata.
+   - Enable **Dump GPT**.
+   - Press **Read Partition(s)** and select a safe place to store the backup.
+   - Click **OK** and wait for the process to complete.
+
+     <img src="https://github.com/user-attachments/assets/0ca80eec-4827-429b-9ba9-ec3a00ba5556" width="300">
+
+> **DO NOT touch anything, move the cable, or interrupt the process!**
+ 4. When it says its **done** you should have a bunch of files in the directory you chose\
+     Again, **keep them safe**
+5. Now, we will backup the **Preloader**\
+    I am not yet sure if this is essential but it doesn't hurt to backup it anyway\
+    If you backup it, you might then **unbrick your device easier** so it is worth it
+   - Open the **Flash Tools** tab.
+   - Click **Read preloader**
+   - Select a safe place to store it.
+     - I like to rename it from ```boot1.bin``` to ```[preloader]boot1.bin```
+6. Success! You should now have an entire system backup\
+   It can be reflashed later in case of a brick or you wanting to go back to its original ROM\
+   To reflash use the **Write Partition(s)** tab
+
+     <img src="https://github.com/user-attachments/assets/1b332f5f-9d1f-45c0-82c4-28bf610d63da" width="600">
+
+   Note: in step 3. you could also use the option **Read flash** from the **Flash Tools** tab to read the whole flash (?)
+
+
+---
+
+
+## Unpacking the original ROM
 It's possible to unpack the original ROM provided by the manufacturer.\
 I did this by first [doing a backup](#making-a-full-backup) (rom dump).\
 This left me with a folder with many .bin files:
@@ -460,93 +522,6 @@ These include:
 ![image](https://github.com/user-attachments/assets/ab4bace5-3cd0-40d5-aef7-6974048dfc71)
 ---
 ![image](https://github.com/user-attachments/assets/1fdb57a1-6b8c-45e6-bb6d-2ad9f6371b56)
-
-
----
-
-
-# Hacking the Device
-
-## Before You Start
-Now that you know a lot of technical details about the system, you can try to hack it. There are many things you can do, but no matter what you try, **you should be very careful**, as everything past this point **<ins>may</ins> lead to you bricking your device**. All the information given by me was gathered by my research and the work of many other people. Using this information i succeded in hacking this phone but I cannot guarantee that you will succeed.
-
-Before doing **anything**, you must make a backup of your original ROM. This could be **very useful** if you accidentally brick your device.
-> **DO YOUR BACKUPS AND KEEP THEM SAFE!**
-
----
-
-## Making a Full Backup
-
-### Requirements
-To make a full device backup, you will need [mtkclient](https://github.com/bkerler/mtkclient). I will be using **mtkclient GUI**. It's a tool used for:
-- Exploitation
-- Reading/Writing flash
-- Unlocking/Locking the bootloader
-- And more
-
-I **will not go into details on how to install it**. You can find installation guides on the internet. You will also need to install the necessary drivers.
-
-#### Alternative Method
-If you do not want to install everything manually, you can use this **[ready-to-use ISO file](https://androidfilehost.com/?fid=15664248565197184488)**:
-1. Burn the ISO onto a flash drive or use [Ventoy](https://www.ventoy.net/en/index.html).
-2. Boot from the USB drive.
-3. Select **Boot Live System**.
-4. After booting, you will see **mtkclient GUI** on the desktop. This is what I used mostly.
-<img src="https://github.com/user-attachments/assets/8697a9f8-c64c-4d28-8930-8165ca1b9615" width="300">
-
-<br>
-
-### Either way, you need to run **mtkclient GUI**!
-
-<br>
-
-### Steps to Make a Backup
-1. Run **mtkclient GUI**.
-2. Power off your device and connect it in **[BROM mode](#brom-bootrom-mode)**. Alternatively, you can try to do the same in [preloader mode](#preloader-mode).
-   - To enter BROM mode, follow [this guide](#brom-bootrom-mode).
-   - If successful, you should see a confirmation message.
-     
-     <img src="https://github.com/user-attachments/assets/f6b7e5ef-7db0-4b38-9b40-26b05f0f6661" width="300">
-        
-   - If not, check:
-     - Your cable
-     - Your connection
-     - Whether you have the correct drivers installed
-     - If the USB device is recognized at all
-
-
-3. Proceed with the backup:
-   - Open the **Read partition(s)** tab.
-   - Click **Select all partitions**.
-   - You <ins>can</ins> unselect **userdata** from the list:
-     - This partition contains user data. If your phone is factory reset, there is no need to back this up.
-     - If your phone is not factory reset and you want to keep your data, leave the box checked.
-     - However, be aware that **userdata is encrypted**.
-     - If the decryption keys are lost (their location is unknown to me), you may not be able to decrypt it later, resulting in data loss.
-     - If you are flashing other ROMs, assume you will lose userdata.
-   - Enable **Dump GPT**.
-   - Press **Read Partition(s)** and select a safe place to store the backup.
-   - Click **OK** and wait for the process to complete.
-
-     <img src="https://github.com/user-attachments/assets/0ca80eec-4827-429b-9ba9-ec3a00ba5556" width="300">
-
-> **DO NOT touch anything, move the cable, or interrupt the process!**
- 4. When it says its **done** you should have a bunch of files in the directory you chose\
-     Again, **keep them safe**
-5. Now, we will backup the **Preloader**\
-    I am not yet sure if this is essential but it doesn't hurt to backup it anyway\
-    If you backup it, you might then **unbrick your device easier** so it is worth it
-   - Open the **Flash Tools** tab.
-   - Click **Read preloader**
-   - Select a safe place to store it.
-     - I like to rename it from ```boot1.bin``` to ```[preloader]boot1.bin```
-6. Success! You should now have an entire system backup\
-   It can be reflashed later in case of a brick or you wanting to go back to its original ROM\
-   To reflash use the **Write Partition(s)** tab
-
-     <img src="https://github.com/user-attachments/assets/1b332f5f-9d1f-45c0-82c4-28bf610d63da" width="600">
-
-   Note: in step 3. you could also use the option **Read flash** from the **Flash Tools** tab to read the whole flash (?)
 
 ---
 
@@ -691,6 +666,50 @@ The steps to do this:
 
 
 ## Debloating
+There are multiple ways to debloat the system or delete the apps:
+### **Disabling Some of the Apps**
+It's not possible to uninstall the bloatware, but you can disable some of the apps in the settings. You can also strip them of background data permissions and other permissions, but they will technically still be there. This **does not** require root but isn't very effective.
+
+### **Uninstalling the Apps with a Debloater**
+You can uninstall all the apps **if your phone is rooted** using a system app remover/debloater like [this one](https://github.com/sunilpaulmathew/De-Bloater).\
+**I do not recommend using this method though!**\
+For me it didn't work for some of the apps and they stayed even though it sayd they were gone.\
+And knowing that you **need root for this**, you can use a different method.\
+I recommend using [the last method](#manually-removing-apps).
+
+### **Uninstalling the Apps with ADB**
+<ins>Note: this method doesn't work!</ins>
+On a normal Android device, you could uninstall system apps like this:
+```
+adb shell
+su
+pm uninstall -k --user 0 <package-name>
+```
+This does not work for this phone, though 🙂. Whenever any `pm` command is sent, it just says:
+```
+Failure
+```
+It seems like the `pm` command was deliberately modified by the manufacturer to not work. Either way, this method **would require root**.
+
+### **Manually Removing Apps**
+Disclaimer:\
+Doing this **can brick your device**!\
+Before deleting an app, **be absolute sure** that you can delete it!\
+Some apps can be safely deleted while others cannot!\
+You might delete an app responsible for a critical system service!
+This might **brick your device** or in some cases **cause a bootloop**!
+Make sure to [have a backup](#making-a-full-backup)!
+
+You can remove apps from the filesystem if your phone is rooted.\
+For example:
+```
+adb shell
+su
+rm /system/path/to/an/app -r
+```
+You would need to first find the path, but this way, the app will literally cease to exist.\
+This is my preferred method 🙂. Of course, you will **need root** for this.
+
 
 ---
 
