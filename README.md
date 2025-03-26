@@ -19,7 +19,8 @@ You may and probably will encounter difficulties when rooting, flashing custom R
     - [Fastboot/Bootloader Mode](#fastbootbootloader-mode)
     - [Preloader mode](#preloader-mode)
     - [BROM mode](#brom-bootrom-mode)
-- [Keypad and buttons](#keypad-and-buttons)
+- [Hardware](#hardware)
+    - [Keypad and buttons](#keypad-and-buttons)
 - [Software](#software)
     - [Preinstalled apps](#preinstalled-apps)
 - [Hacking the device](#hacking-the-device)
@@ -228,23 +229,64 @@ The view from mtkclient:
 ---
 
 
+# Hardware
 
 ## Keypad and buttons
+#### The phone has a total of **21 buttons**.
+This includes:
+   - ```0-9``` number buttons,
+   - ```*``` and ```#``` buttons,
+   - A call button,
+   - A power / hangup button,
+   - A ```go back``` button,
+   - 4 directional buttons (up, down, left and right),
+   - Middle / select button,
+   - A weird owl/heart/qinguard button.
 
-- Pressing the **4, 7,** keys at the same time gives the same keycode as the back button. This is probably caused by how the keyboard distinguishes buttons, either by a row-column matrix or by having different resistances for each key. It could mean that the 3 keys' resistances add up to be the same as the back button's resistance.
 
-- When experimenting with settings in the stock locked ROM, I was very interested in the "Quick Settings" tab (which is responsible for selecting hotkeys for different actions such as vol+, vol-, opening an app, speed dial, flashlight, or opening any other app. The action is invoked when a chosen button is long pressed), and I discovered a couple of things.  
-    - **First discovery:** The hotkeys only work with the default launcher. I am using a custom open-source minimalist launcher which can be found [here](https://github.com/DroidWorksStudio/EasyLauncher). I will discuss useful software for the phone later.  
-      
-      So the hotkeys don't work with my launcher **EXCEPT** for vol+ and vol-. I later discovered that the value of the button for these two actions is stored in the global table as **volume_down_shotcut_keycode**. (Not *shortcut* but *shotcut*.) This isn't the case for any other actions, which suggests that they are handled differently.  
+ <img src="https://github.com/user-attachments/assets/657c2fd0-0e87-4509-8cf4-34966d7cd6a4" width="250">
 
-      The value of the setting changes depending on which key we choose, although from the settings we can only choose the number keys. After some tweaking with ADB, changing the value, and testing it out, I came up with this "key map":
+### Interesting facts about the keypad:
+- Pressing the **4, 7,** keys at the same time gives the same keycode as the back button.\
+  This is probably caused by how the keyboard distinguishes buttons.\
+  It's done either by a row-column matrix or by having **different resistances** for each key.\
+  It could mean that the 3 keys' resistances add up to be the same as the back button's resistance.
+  
+<br>
 
-      ```
-      "0"    : none
-      "1"    : none
-      "2"    : none
-      "3"    : none
+- When experimenting with settings in the stock locked ROM, I was very interested in the "Quick Settings" tab.\
+  It is responsible for selecting hotkeys for different actions such as vol+, vol-, opening an app, speed dial, flashlight, or opening any other app.\
+  The action is invoked when a chosen button is held for a moment.
+
+  The first important thing to note is that **the hotkeys only work with the default launcher**.\
+  I am using a custom open-source minimalist launcher which can be found [here](https://github.com/DroidWorksStudio/EasyLauncher).
+     
+  So, these hotkeys don't work with my launcher **EXCEPT** for vol+ and vol-!\
+  I later discovered that the value of the button for these two actions is stored in the global table as:
+  ```
+  volume_down_shotcut_keycode
+  ```
+  *Note: that is not a spelling mistake, it's **shotcut** and not **shortcut***
+  
+  This isn't the case for any other actions. Their "shotcut keycodes" aren't stored in the settings.\
+  Instead they could be stored in the launchers data.
+  
+  All of this suggests that:
+     - **vol+ and vol-** are handled by the **system itself**.
+     - **The rest** are handled by the **default launcher**
+
+
+  The value of the setting changes depending on which key we choose.\
+  The system settings allow us to choose **only number keys**.\
+  We can try to go around this.
+  
+<br>
+
+  #### I started tweaking with ADB and testing different values.
+  Soon, i came up with this key map.
+  
+  
+      "<3"    : none
       "4"    : back button
       "5"    : call button
       "6"    : none
@@ -260,27 +302,44 @@ The view from mtkclient:
       "16"   : 9 number key
       "17"   : *
       "18"   : #
-      "19"   : up (on the "joystick")
-      "20"   : down (on the "joystick")
-      "21"   : left (on the "joystick")
-      "22"   : right (on the "joystick")
-      "23"   : middle (big round button)
-      "24"   : none
-      "26"   : untested
-      ```
-      To get the current value, use ```adb shell settings get global volume_down_shotcut_keycode``` and to change it use ```adb shell settings put global volume_down_shotcut_keycode 4```
-      Of course, change the *volume_down_shotcut_keycode* to *volume_up_shotcut_keycode* and the value (e.g. 4) accordingly.
-      This can **only** be done using adb or with some tweaking with a custom settings database editor like [this one](https://github.com/MuntashirAkon/SetEdit).
-      
-      This key map **can** be useful if you use the stock rom and want to set your volume keys to any of the buttons... except for the power button... and the **Owl/Heart/Qinguard button** 🤔
-      It turns out that at least to my knowledge these two cannot be mapped using the stock settings (and with the help of adb). While the power button makes sense since it has a crucial role of powering on and off, the other one doesn't make any sense.
+      "19"   : up
+      "20"   : down
+      "21"   : left
+      "22"   : right
+      "23"   : middle/ select
+      ">24"   : none
 
-      With this out of the way I strongly suggest using [this KeyMapper](https://github.com/keymapperorg/KeyMapper) app. It is free, open source and works great, allows for a lot more tweaking and supports the **Owl/Heart/Qinguard button** lol.
+  To get the current value, use
+  ```
+  adb shell settings get global volume_down_shotcut_keycode
+  ```
+  And to change the value:
+  ```
+  adb shell settings put global volume_down_shotcut_keycode 16
+  ```
+  These are example commands, change them to your needs.
       
-    - **Second discovery:** It turns out the **Owl/Heart/Qinguard button** is handled differently than the other keys. When you connect your phone to a computer and run ```adb shell getevent -lq``` it will output the actions that happen in the device.
-      When you press most of the buttons, you get an output like this:
-      
-         In this case **button 1** pressed:
+  This key map **can** be useful if you use the stock rom and want to set your volume keys to any of the buttons...\
+  Well, except for the power button... and the **Owl/Heart/Qinguard button** 🤔\
+  It turns out that at least to my knowledge these two cannot be mapped to do these actions.\
+  While it makes sense with the power button, since it has a crucial role of powering on and off...\
+  The other one doesn't.
+<br>
+  Anyway, if you want to have cool shortcuts, please use [this KeyMapper](https://github.com/keymapperorg/KeyMapper) app.\
+  It is free, open source and works great.\
+  It allows for a lot more tweaking and also supports the **Owl/Heart/Qinguard button**.
+
+<br>
+
+- It turns out the **Owl/Heart/Qinguard button** is handled differently than the other keys.\
+  When you connect your phone to a computer and run:
+   ```
+  adb shell getevent -lq
+   ```
+  it will output the events occuring in the device.\
+  When you press most of the buttons, you get an output like this:
+  
+      In this case **button 1** pressed:
          ```/dev/input/event0: EV_KEY       KEY_1                DOWN                
             /dev/input/event0: EV_SYN       SYN_REPORT           00000000            
             /dev/input/event0: EV_KEY       KEY_1                UP                  
@@ -300,12 +359,13 @@ The view from mtkclient:
             /dev/input/event3: EV_KEY       KEY_MENU             UP                  
             /dev/input/event3: EV_SYN       SYN_REPORT           00000000
          ```
-
-         Notice how the /dev/input/event**X** differs depending on the keys. From this we know that the **power button** and the **Owl/Heart/Qinguard button** are both handled differently than the rest.
+  
+  Notice how the /dev/input/event**X** differs depending on the keys.\
+  From this we know that the **power button** and the **Owl/Heart/Qinguard button** are both handled differently than the rest.
+  That's a little strange.
 
       
 ---
-
 
 
 # Software
