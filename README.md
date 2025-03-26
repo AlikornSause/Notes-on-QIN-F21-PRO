@@ -1,6 +1,12 @@
 # Notes on QIN F21 PRO
+## Disclaimer
+I am an amateur, and everything I say here should be taken with a grain of salt. The information presented here was gathered through my research and from the amazing [XDA Forums](https://xdaforums.com/)! I do not take responsibility for bricking your device, losing your data, or any other issues that may arise. The information presented here **might not be 100% true** and some of it is my subjective opinion. If in any case I am wrong i would greatly appreciate your feedback so that everything here be a great source of info for other people.
+
+It is very possible that you will encounter difficulties when rooting, flashing custom ROMs, or modifying your device. However, the good news is that there is a lot of support online, and most mistakes have already been made and fixed. Good luck hacking!
+
+---
+
 ## Table of Contents
-- [Disclaimer](#disclaimer)
 - [Introduction to the phone](#the-phone)
 - [Device variants](#versions)
     - [Hardware variants](#hardware-versions)
@@ -11,6 +17,8 @@
     - [Normal mode](#normal-mode)
     - [Recovery mode](#recovery-mode)
     - [Fastboot/Bootloader Mode](#fastbootbootloader-mode)
+    - [Prealoader mode](#preloader-mode)
+    - [BROM mode](#brom-bootrom-mode)
 - [Keypad and buttons](#keypad-and-buttons)
 - [Software](#software)
     - [Preinstalled apps](#preinstalled-apps)
@@ -19,23 +27,15 @@
     - [Disclaimer](#before-you-start)
     - [Making a full backup](#making-a-full-backup)
     - [Rooting](#rooting)
-    - [Modifing the /system partition](#modifing-the-system-partition)
+    - [Modifying the /system partition](#modifying-the-system-partition)
     - [Debloating](#debloating)
     - [Installing GAPPS](#installing-gapps)
     - [Installing custom ROMs](#installing-custom-roms)
     - [Changing the Orange Stare Warning text](#changing-the-orange-state-warning-text)
     - [Removing the Orange Stare Warning text](#removing-the-orange-state-warning-text)
     - [Removing the 5 Second Delay in Orange State](#removing-the-5-second-delay-in-orange-state)
-      
-## Disclaimer
-I am an amateur, and everything I say here should be taken with a grain of salt. The information presented here was gathered through my research and from the amazing [XDA Forums](https://xdaforums.com/)! I do not take responsibility for bricking your device, losing your data, or any other issues that may arise. The information presented here **might not be 100% true** and some of it is my subjective opinion. If in any case I am wrong i would greatly appreciate your feedback so that everything here be a great source of info for other people.
 
-It is very possible that you will encounter difficulties when rooting, flashing custom ROMs, or modifying your device. However, the good news is that there is a lot of support online, and most mistakes have already been made and fixed. Good luck hacking!
-
-
-
----
-
+---      
 
 
 # The Phone
@@ -75,8 +75,8 @@ The phone comes with at least three different ROM versions:
 - **International ROM:** Multi-language support, bootloader unlocked, Google Play present, NOT Google certified.
 
 **Privacy concerns**
-These stock ROMs are not to be trusted as they send weird packets directly to China.
-Some of them were sent to NTP servers in China which isn't that weird but others point to duoqin.com, xiaomi and others.
+These stock ROMs are not to be trusted as they send suspicious packets directly to China.
+Some of them were sent to NTP servers in China which isn't that strange but others point to duoqin.com, miui.com and others.
 A list of all URLs that are/ can be sent information:
   - connect.rom.miui.com
   - wifi.vivo.com.cn
@@ -84,7 +84,7 @@ A list of all URLs that are/ can be sent information:
   - cn.ntp.org.cn
   - dq-avatar.duoqin.com
   - loc.map.baidu.com
-<ins>At least thats what my PCAPdroid said</ins>. I used it with root access so it should see literally everything sent from the device. I hope thats the case.
+<ins>At least that's what PCAPdroid reported</ins>. I used it with root access so it should see literally everything sent from the device. I hope thats the case.
 The privacy topic will be discussed more later in this document.
 
 ### Differences
@@ -272,13 +272,13 @@ The view from mtkclient:
       Of course, change the *volume_down_shotcut_keycode* to *volume_up_shotcut_keycode* and the value (e.g. 4) accordingly.
       This can **only** be done using adb or with some tweaking with a custom settings database editor like [this one](https://github.com/MuntashirAkon/SetEdit).
       
-      This key map **can** be useful if you use the stock rom and want to set your volume keys to any of the buttons... exept for the power button... and the **Owl/Heart/Qinguard button** 🤔
-      It turns out that at least to my knowlege these two cannot be mapped using the stock settings (and with the help of adb). While the power button makes sense since it has a crucial role of powering on and off, the other one doesn't make any sense.
+      This key map **can** be useful if you use the stock rom and want to set your volume keys to any of the buttons... except for the power button... and the **Owl/Heart/Qinguard button** 🤔
+      It turns out that at least to my knowledge these two cannot be mapped using the stock settings (and with the help of adb). While the power button makes sense since it has a crucial role of powering on and off, the other one doesn't make any sense.
 
       With this out of the way I strongly suggest using [this KeyMapper](https://github.com/keymapperorg/KeyMapper) app. It is free, open source and works great, allows for a lot more tweaking and supports the **Owl/Heart/Qinguard button** lol.
       
-    - **Second discovery:** It turns out the **Owl/Heart/Qinguard button** is handled diffirently than the other keys. When you connect your phone to a computer and run ```adb shell getevent -lq``` it will output the actions that happen in the device.
-      When you most of the buttons you get something like this:
+    - **Second discovery:** It turns out the **Owl/Heart/Qinguard button** is handled differently than the other keys. When you connect your phone to a computer and run ```adb shell getevent -lq``` it will output the actions that happen in the device.
+      When you press most of the buttons, you get an output like this:
       
          In this case **button 1** pressed:
          ```/dev/input/event0: EV_KEY       KEY_1                DOWN                
@@ -363,13 +363,13 @@ You would need to first find the path, but this way, the app will literally ceas
 ---
 
 ## Original ROM unpacked
-It's posssible to unpack the original ROM provided by the manufacturer.\
+It's possible to unpack the original ROM provided by the manufacturer.\
 I did this by first [doing a backup](#making-a-full-backup) (rom dump).\
 This left me with a folder with many .bin files:
 
 <img src="https://github.com/user-attachments/assets/1b332f5f-9d1f-45c0-82c4-28bf610d63da" width="800">
 
-**Here's the list of them, explained briefly (I skipped A/B versions like boot_a.bin and boot_b.bin as they are ussually copies)**
+**Here's the list of them, explained briefly (I skipped A/B versions like boot_a.bin and boot_b.bin as they are usually copies)**
 
 ```
 boot_a.bin:                        These partitions contain the boot image, including the kernel and ramdisk, essential for booting the device.
@@ -396,11 +396,11 @@ scp_a.bin:                         Unknown, contains a lot of binary data and so
 sec1.bin:                          Unknown, empty file
 seccfg.bin:                        Likely contains security configuration settings for the device.​ Mostly empty file
 spmfw_a.bin:                       Could be related to the System Power Management Firmware. Contains some code but is mostlu empty
-sspm_a.bin:                        Unknown, contains the string tinysys-sspm at the beggining.
+sspm_a.bin:                        Unknown, contains the string tinysys-sspm at the begining.
 super.bin:                         Contains the system etc.
 tee_a.bin:                         Unknown.
 userdata.bin:                      Stores user data, including installed applications and personal files.​
-vbmeta_a.bin:                      Contain Verified Boot metadata, used for veryfing image before booting.
+vbmeta_a.bin:                      Contain Verified Boot metadata, used for verifying image before booting.
 vbmeta_system_a.bin:               Seems to store some system metadata like com.android.build.product.security_patch
 vbmeta_vendor_a.bin:               Seems to store some system metadata like com.android.build.product.security_patch
 vendor_boot_a.bin:                 Unknown, empty file.
@@ -466,7 +466,7 @@ These include:
 ## Before You Start
 Now that you know a lot of technical details about the system, you can try to hack it. There are many things you can do, but no matter what you try, **you should be very careful**, as everything past this point **<ins>may</ins> lead to you bricking your device**. All the information given by me was gathered by my research and the work of many other people. Using this information i succeded in hacking this phone but I cannot guarantee that you will succeed.
 
-Before doing **anything**, you must make a backup of your original ROM. This could come **very handy** when you realize you bricked your device.
+Before doing **anything**, you must make a backup of your original ROM. This could be **very useful** if you accidentally brick your device.
 > **DO YOUR BACKUPS AND KEEP THEM SAFE!**
 
 ---
@@ -480,7 +480,7 @@ To make a full device backup, you will need [mtkclient](https://github.com/bkerl
 - Unlocking/Locking the bootloader
 - And more
 
-I **will not go into details on how to install it**. You can find installation guides on the internet. You will also need to install some drivers.
+I **will not go into details on how to install it**. You can find installation guides on the internet. You will also need to install the necessary drivers.
 
 #### Alternative Method
 If you do not want to install everything manually, you can use this **[ready-to-use ISO file](https://androidfilehost.com/?fid=15664248565197184488)**:
@@ -600,7 +600,7 @@ Note: This tutorial is based on [this](https://xdaforums.com/t/guide-xiaomi-qin-
 10. **Download [this vbmeta](https://github.com/AlikornSause/Notes-on-QIN-F21-PRO/blob/main/vbmeta_a.bin) file**
     - This file is needed to enable booting the patched image.
     - It comes from [this](https://xdaforums.com/t/guide-xiaomi-qin-f21-pro-mt6761-global-rooted-with-play-store.4425811/post-88203539) post from XDA Forums. The author of the post, @-gloim- claims that the file comes from [this](https://xdaforums.com/t/guide-xiaomi-qin-f21-pro-custom-firmware-root-playstore-certified.4405615/) tutorial.
-    - This file solved this issue apearing on the screen:
+    - This file solved this issue appearing on the screen:
       ```
       dm-verity corruption
       Your device is corrupt.
@@ -611,10 +611,10 @@ Note: This tutorial is based on [this](https://xdaforums.com/t/guide-xiaomi-qin-
       I think it's caused by the bootloader not accepting the boot image, because it can't verify it.
     - Some people suggested that flashing an empty file instead of this vbmeta file works but **I can't advise that, as it didn't work for me**
     - It did not work for me because it probably didn't even flash the file. The mtkclient gui kept freezing when flashing an empty file.
-    - It might be that the empty file is just not accepted and it declines and freezes.
+    - It seems like the empty file is not accepted, causing the process to freeze.
     - Someone might have found a solution to that. He used this command to flash the empty file:
       ```fastboot --disable-verity --disable-verification flash vbmeta_a vbmeta_a.bin```
-
+      
     - It may have worked for him but **I did not use that method. I just used [the file](https://github.com/AlikornSause/Notes-on-QIN-F21-PRO/blob/main/vbmeta_a.bin) i provided above** and thats what I advise everyone to do
     
 11. **Flash the patched boot image and vbmeta file**
@@ -648,7 +648,7 @@ Note: This tutorial is based on [this](https://xdaforums.com/t/guide-xiaomi-qin-
 ---
 
 
-## Modifing the /system partition
+## Modifying the /system partition
 **BE CAREFUL!** When editing the /system partition you can delete crucial system files and brick your device!
 <br><br>
 If your device is already rooted you can edit anything on the /system partition.\
@@ -748,13 +748,13 @@ You can change it to say something else.
    - Again, **make sure you only overwrite the lk_a or lk_b**.
      
 8. **Reboot**
-   - If done corectly, the text should be changed accordingly 🙂
+   - If done correctly, the text should change as expected 🙂.
    - This can also be used to change other strings.
    - This includes the **Red state** warning and other warnings.
    - The process should be very similar although **I haven't tested that**.
-   - But always, be **very carefull** when modifing these files.
+   - But always, be **very carefull** when modifying these files.
 
-**If the device behaves weirdly, you might have made an error when editing, try to reflash the original backup of lk**
+**If the device behaves strangely, you might have made an error when editing, try to reflash the original backup of lk**
 ---
 ## Removing the Orange State Warning text
 **You might me annoyed by this text that appears when booting:**
@@ -771,10 +771,10 @@ This should look like this.
 
 Other than that, the steps with removing the text are the same as [changing it](#changing-the-orange-state-warning-text).
 
-**If the device behaves weirdly, you might have made an error when editing, try to reflash the original backup of lk**
+**If the device behaves strangely, you might have made an error when editing, try to reflash the original backup of lk**
 ---
 ## Removing the 5 second delay in Orange State
-**You might me annoyed by the 5 second delay that slows down the booting process when in Orange State**
+**You might be annoyed by the 5-second delay that extends the boot process**
 It can be deleted easily and involves the same steps as [changing the orange state warning text](#changing-the-orange-state-warning-text).
 
 The process involves these steps:
@@ -812,7 +812,7 @@ The process involves these steps:
    - The boot time will be shorter by 5 seconds 🙂
    
 
-**If the device behaves weirdly, you might have made an error when editing, try to reflash the original backup of lk**
+**If the device behaves strangely, you might have made an error when editing, try to reflash the original backup of lk**
 
 ---
 
