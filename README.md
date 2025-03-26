@@ -1,8 +1,8 @@
 # Notes on QIN F21 PRO
 ## Disclaimer
-I am an amateur, and everything I say here should be taken with a grain of salt. The information presented here was gathered through my research and from the amazing [XDA Forums](https://xdaforums.com/)! I do not take responsibility for bricking your device, losing your data, or any other issues that may arise. The information presented here **might not be 100% true** and some of it is my subjective opinion. If in any case I am wrong i would greatly appreciate your feedback so that everything here be a great source of info for other people.
+I am an amateur, and everything I say here should be taken with a grain of salt. The information presented here was gathered through my research and from the amazing [XDA Forums](https://xdaforums.com/)! I do not take responsibility for bricking your device, losing your data, or any other issues that may arise. The information presented here **might not be 100% true** and some of it is my subjective opinion. If in any case I am wrong i would greatly appreciate your feedback so that everything here to be a great source of info for other people.
 
-It is very possible that you will encounter difficulties when rooting, flashing custom ROMs, or modifying your device. However, the good news is that there is a lot of support online, and most mistakes have already been made and fixed. Good luck hacking!
+You may and probably will encounter difficulties when rooting, flashing custom ROMs, or modifying your device. However, the good news is that there is a lot of support online, and most mistakes have already been made and fixed. Good luck hacking!
 
 ---
 
@@ -344,7 +344,7 @@ This <ins>wasn't tested by me</ins>, but people reported the phone **entering a 
 # Hacking the Device
 
 ## Before You Start
-Now that you know a lot of technical details about the system, you can try to hack it. There are many things you can do, but no matter what you try, **you should be very careful**, as everything past this point **<ins>may</ins> lead to you bricking your device**. All the information given by me was gathered by my research and the work of many other people. Using this information i succeded in hacking this phone but I cannot guarantee that you will succeed.
+Now that you know a lot of technical details about the system, you can try to hack it. There are many things you can do, but no matter what you try, **you should be very careful**, as everything past this point **<ins>may</ins> lead to you bricking your device**. All the information given by me was gathered by my research and the work of many other people. Using this information i succeeded in hacking this phone but I cannot guarantee that you will succeed.
 
 Before doing **anything**, you must make a backup of your original ROM. This could be **very useful** if you accidentally brick your device.
 > **DO YOUR BACKUPS AND KEEP THEM SAFE!**
@@ -617,7 +617,7 @@ Note: This tutorial is based on [this](https://xdaforums.com/t/guide-xiaomi-qin-
     - You should see an **Orange state warning**. This is **normal**. It means the bootloader is unlocked.
     - The message should not be worrying. The phone will boot in 5 seconds.
     - The message can also be [changed](#changing-the-orange-state-warning-text) or [removed](#removing-the-orange-state-warning-text).
-    - The 5 second delay can albo be [removed](#removing-the-5-second-delay-in-orange-state).
+    - The 5 second delay can also be [removed](#removing-the-5-second-delay-in-orange-state).
 
 14. **Your phone should now be rooted!**
     - After powering on, launch the magisk app. You should see a screen similar to this:
@@ -673,7 +673,7 @@ It's not possible to uninstall the bloatware, but you can disable some of the ap
 ### **Uninstalling the Apps with a Debloater**
 You can uninstall all the apps **if your phone is rooted** using a system app remover/debloater like [this one](https://github.com/sunilpaulmathew/De-Bloater).\
 **I do not recommend using this method though!**\
-For me it didn't work for some of the apps and they stayed even though it sayd they were gone.\
+For me it didn't work for some of the apps and they stayed even though it said they were gone.\
 And knowing that you **need root for this**, you can use a different method.\
 I recommend using [the last method](#manually-removing-apps).
 
@@ -721,7 +721,7 @@ TO BE ADDED LATER
 TO BE ADDED LATER
 ---
 ## Changing the Orange State Warning text
-**You might me annoyed by this text that appears when booting:**
+**You might be annoyed by this text that appears when booting:**
 ```
 Orange State
 Your device has been unlocked and can't be trusted
