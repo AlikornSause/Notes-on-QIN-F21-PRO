@@ -17,7 +17,7 @@ It is very possible that you will encounter difficulties when rooting, flashing 
     - [Normal mode](#normal-mode)
     - [Recovery mode](#recovery-mode)
     - [Fastboot/Bootloader Mode](#fastbootbootloader-mode)
-    - [Prealoader mode](#preloader-mode)
+    - [Preloader mode](#preloader-mode)
     - [BROM mode](#brom-bootrom-mode)
 - [Keypad and buttons](#keypad-and-buttons)
 - [Software](#software)
@@ -200,23 +200,23 @@ Fastboot mode is used for flashing firmware, unlocking the bootloader, and check
   ---
 
 ### **Preloader mode**
-  It is used in mtkclient or spflash tool
-  When using these 2 tools, you might want to put the phone in this mode
-  To do this, simply connect the phone to your computer with a USB cable when the tool is running without pressing any keys.
+  It is used in mtkclient or spflash tool.\
+  When using these 2 tools, you might want to put the phone in this mode.\
+  To do this, simply connect the phone to your computer with a USB cable when the tool is running without pressing any keys.\
   This should put the phone in preloader mode.
 
   The view from mtkclient:
   
   <img src="https://github.com/user-attachments/assets/20b574fd-3f11-4afe-ac0e-2ebb3a4fed44" width="300">
 
-  This mode together with these tools can be used to dump the rom, make backups, flash the rom and many other things
+  This mode together with these tools can be used to dump the rom, make backups, flash the rom and many other things.
   
 ---
   
 ### **BROM (bootrom) mode**
-  It is used in mtkclient or spflash tool
-  When using these 2 tools, you might want to put the phone in this mode
-  To do this, hold the Owl/Heart/Qinguard button and back button and connect the device to your computer, while mtkclient or spflashtool is running
+  It is used in mtkclient or spflash tool.\
+  When using these 2 tools, you might want to put the phone in this mode.\
+  To do this, hold the Owl/Heart/Qinguard button and back button and connect the device to your computer, while mtkclient or spflashtool is running.
   
  <img src="https://github.com/user-attachments/assets/0b3f8312-71f7-4ac1-b2d1-e6e21251a2b4" width="200">
  
