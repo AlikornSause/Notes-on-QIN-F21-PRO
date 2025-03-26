@@ -905,7 +905,14 @@ TO BE ADDED LATER
 1. Bootloop when flashing patched images.
 ( When testing i came across this, by flashing the original vbmeta_b.bin
 with a patched magisk boot_b.bin flashed. This resulted in the Orange State
-warning but after 5 seconds the device just rebooted. Flash the vbmeta fix file
+warning but after 5 seconds the device just rebooted. Flash the vbmeta fix file.
+)
+3. Stuck after boot animation.
+(I came across this when tinkering with partitions.
+I wanted to see what would happen if I erased the partition **md_udc**.
+By analizing the firmware it seemed that it contained userdata decryption keys.
+After erasing itt, the phone was stuck at the duoqin logo after showing the bootanimation.
+To fix, flash md_udc backup.
 )
 
 
