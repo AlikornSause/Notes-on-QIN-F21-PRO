@@ -1,0 +1,175 @@
+su
+mount -o rw,remount /
+mount -o rw,remount /product
+rm -r /system/app/BasicDreams
+rm -r /system/app/Baidu_Location
+rm -r /system/app/BluetoothMidiService
+rm -r /system/app/BookmarkProvider
+rm -r /system/app/DqCalculator
+rm -r /system/app/DqMusic
+rm -r /system/app/DuoqinAccount
+rm -r /system/app/DuoqinIme
+rm -r /system/app/DuoqinIme_new
+rm -r /system/app/EasterEgg
+rm -r /system/app/KikaIME
+rm -r /system/app/QinFeedback
+rm -r /system/app/QinPost
+rm -r /system/app/QinPay
+rm -r /system/app/SyncAssistant
+rm -r /system/app/Translator
+rm -r /system/app/WallpaperBackup
+rm -r /system/app/XiaoAi
+rm -r /system/app/Traceur
+rm -r /system/app/NonFrameworkLbs
+
+rm -r /system/app/Remote
+rm -r /system/priv-app/WapiCertManager
+rm -r /system/priv-app/Stk1
+rm -r /system/priv-app/RemoteService
+rm -r /system/priv-app/QinSystemUpdate
+rm -r /system/priv-app/QinManager
+rm -r /system/priv-app/QinGuard
+rm -r /system/priv-app/MusicFX
+rm -r /system/priv-app/Market
+rm -r /system/priv-app/BackupRestoreConfirmation
+rm -r /system/priv-app/DqSoundRecorder
+rm -r /system/priv-app/DocumentsUI
+rm -r /system/priv-app/VoiceInput
+rm -r /system/priv-app/MtkMms
+rm -r /system/priv-app/UserDictionaryProvider
+rm -r /system/priv-app/MtkCalendarProvider
+rm -r /system/priv-app/CallRecorderService
+rm -r /system/priv-app/MtkDeskClock
+rm -r /system/priv-app/CtsShimPrivPrebuilt
+rm -r /system/priv-app/ProxyHandler
+rm -r /system/priv-app/DynamicSystemInstallationService
+rm -r /system/priv-app/DownloadProviderUi
+rm -r /system/priv-app/CellBroadcastLegacyApp
+rm -r /system/priv-app/SharedStorageBackup
+rm -r /system/priv-app/LPPeService
+
+rm -r /system/system_ext/app/MtkBrowser
+rm -r /system/system_ext/app/MtkCalendar
+rm -r /system/system_ext/app/MtkWallpaperPicker
+
+rm -r /system/system_ext/priv-app/MtkGallery2
+rm -r /system/system_ext/priv-app/WallpaperCropper
+rm -r /system/system_ext/priv-app/MtkContacts
+rm -r /system/system_ext/priv-app/MtkDialer
+
+rm -r /data/data/com.duoqin.ai
+rm -r /data/data/com.duoqin.app.guard
+rm -r /data/data/com.duoqin.duoqinaccount
+rm -r /data/data/com.duoqin.feedback
+rm -r /data/data/com.duoqin.guardapp
+rm -r /data/data/com.duoqin.inputmethod
+rm -r /data/data/com.duoqin.inputmethod.pinyin
+rm -r /data/data/com.duoqin.manager
+rm -r /data/data/com.duoqin.pinyin
+rm -r /data/data/com.duoqin.post
+rm -r /data/data/com.duoqin.promarket
+rm -r /data/data/com.duoqin.remote
+rm -r /data/data/com.duoqin.remoteservice
+rm -r /data/data/com.duoqin.syncassistant
+rm -r /data/data/com.duoqin.systemupdate
+rm -r /data/data/com.duoqin.translator
+rm -r /data/data/com.android.dialer
+rm -r /data/data/com.android.musicfx
+rm -r /data/data/com.android.wallpaperbackup
+rm -r /data/data/com.android.wallpapercropper
+rm -r /data/data/com.android.wallpaperpicker
+rm -r /data/data/com.baidu.map.location
+rm -r /data/data/com.iqqijni.dv12key
+rm -r /data/data/com.android.calendar
+rm -r /data/data/com.android.gallery3d
+rm -r /data/app/com.android.bookmarkprovider-*
+rm -r /data/app/com.duoqin.ai
+rm -r /data/app/com.sprd.sprdcalculator
+rm -r /data/app/com.duoqin.guardapp
+rm -r /data/app/com.duoqin.systemupdate
+rm -r /data/app/com.android.musicfx
+rm -r /data/app/com.android.documentsui
+
+rm -r /data/user/0/com.duoqin.remote
+rm -r /data/user/0/com.duoqin.inputmethod
+rm -r /data/user/0/com.android.dialer
+rm -r /data/user/0/com.android.documentsui
+rm -r /data/user/0/com.android.mms
+rm -r /data/user/0/com.android.dialer
+rm -r /data/user/0/com.android.providers.calendar
+rm -r /data/user/0/com.mediatek.callrecorder
+rm -r /data/user/0/com.android.deskclock
+rm -r /data/user/0/com.android.cts.ctsshim
+rm -r /data/user/0/com.android.cts.priv.ctsshim
+rm -r /data/user/0/com.android.traceur
+rm -r /data/user/0/com.android.settings.intelligence
+rm -r /data/user/0/com.android.proxyhandler
+rm -r /data/user/0/com.android.dialer
+rm -r /data/user/0/com.android.dynsystem
+rm -r /data/user/0/com.android.providers.downloads.ui
+rm -r /data/user/0/com.android.cellbroadcastreceiver
+rm -r /data/user/0/com.android.sharedstoragebackup
+rm -r /data/user/0/com.mediatek.location.lppe.main
+rm -r /data/user/0/com.mediatek.gnss.nonframeworklbs
+
+rm -r /data/user_de/0/com.android.dialer
+rm -r /data/user_de/0/com.duoqin.remote
+rm -r /data/user_de/0/com.android.inputmethod.latin
+rm -r /data/user_de/0/com.android.providers.calendar
+rm -r /data/user_de/0/com.mediatek.callrecorder
+rm -r /data/user_de/0/com.android.deskclock
+rm -r /data/user_de/0/com.android.cts.ctsshim
+rm -r /data/user_de/0/com.android.cts.priv.ctsshim
+rm -r /data/user_de/0/com.android.traceur
+rm -r /data/user_de/0/com.android.settings.intelligence
+rm -r /data/user_de/0/com.android.proxyhandler
+rm -r /data/user_de/0/com.android.dialer
+rm -r /data/user_de/0/com.android.dynsystem
+rm -r /data/user_de/0/com.android.providers.downloads.ui
+rm -r /data/user_de/0/com.android.cellbroadcastreceiver
+rm -r /data/user_de/0/com.android.sharedstoragebackup
+rm -r /data/user_de/0/com.mediatek.location.lppe.main
+rm -r /data/user_de/0/com.mediatek.gnss.nonframeworklbs
+
+rm -r /product/app/LatinIME
+rm -r /product/priv-app/MtkQuickSearchBox
+rm -r /product/overlay/AccentColorBlack
+rm -r /product/overlay/AccentColorCinnamon -r
+rm -r /product/overlay/AccentColorGreen -r
+rm -r /product/overlay/AccentColorOcean -r
+rm -r /product/overlay/AccentColorOrchid -r
+rm -r /product/overlay/AccentColorPurple -r
+rm -r /product/overlay/AccentColorSpace -r
+rm -r /product/overlay/DisplayCutoutEmulationCorner
+rm -r /product/overlay/DisplayCutoutEmulationDouble
+rm -r /product/overlay/DisplayCutoutEmulationHole
+rm -r /product/overlay/DisplayCutoutEmulationTall
+rm -r /product/overlay/DisplayCutoutEmulationWaterfall
+rm -r /product/overlay/FontNotoSerifSource
+rm -r /product/overlay/IconPackCircularAndroid
+rm -r /product/overlay/IconPackCircularLauncher
+rm -r /product/overlay/IconPackCircularSettings
+rm -r /product/overlay/IconPackCircularSystemUI
+rm -r /product/overlay/IconPackCircularThemePicker
+rm -r /product/overlay/IconPackFilledAndroid
+rm -r /product/overlay/IconPackFilledLauncher
+rm -r /product/overlay/IconPackFilledSettings
+rm -r /product/overlay/IconPackFilledSystemUI
+rm -r /product/overlay/IconPackFilledThemePicker
+rm -r /product/overlay/IconPackRoundedAndroid
+rm -r /product/overlay/IconPackRoundedLauncher
+rm -r /product/overlay/IconPackRoundedSettings
+rm -r /product/overlay/IconPackRoundedSystemUI
+rm -r /product/overlay/IconPackRoundedThemePicker
+rm -r /product/overlay/IconShapePebble
+rm -r /product/overlay/IconShapeRoundedRect
+rm -r /product/overlay/IconShapeSquircle
+rm -r /product/overlay/IconShapeTaperedRect
+rm -r /product/overlay/IconShapeTeardrop
+rm -r /product/overlay/IconShapeVessel
+rm -r /product/overlay/NavigationBarMode3Button
+rm -r /product/overlay/NavigationBarModeGestural
+rm -r /product/overlay/NavigationBarModeGesturalExtraWideBack
+rm -r /product/overlay/NavigationBarModeGesturalNarrowBack
+rm -r /product/overlay/NavigationBarModeGesturalWideBack
+rm -r /product/overlay/framework-res__auto_generated_rro_product.apk
