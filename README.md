@@ -898,6 +898,122 @@ The process involves these steps:
 **If the device behaves strangely, you might have made an error when editing, try to reflash the original backup of lk**
 
 ---
+## Changing the Boot Logo
+
+You might want to change the default boot logo that appears when you power on the phone:
+
+![image](https://github.com/user-attachments/assets/f87aa0d1-f758-43ec-8cd1-1855e78e9000)
+
+It's stored in the **logo** partition in the phone’s memory.  
+*Note: The animation where the Duoqin logo swipes from the side is a different part of the boot logo process. It’s located at `/system/media/bootanimation.zip` and will be discussed later.*
+
+The process of changing it to a premade boot logo like the ones I share is very easy. If you want to create your **own logo**, though, it will be harder.
+
+---
+
+### Choosing Your Process
+- **If you want to just flash one of the logos I shared, go [here](#flashing-the-logo).**
+- **If you want to create your own logo and flash it, continue reading.**
+
+---
+
+## Creating Your Own Boot Logo
+
+### Step 1: Get Your **logo.bin**
+- Obtain your **logo.bin** from your [backup](#making-a-full-backup).  
+  - If you haven't done the backup yet, [do it now](#making-a-full-backup)!
+- Download the [Logo Builder](https://github.com/AlikornSause/Notes-on-QIN-F21-PRO/raw/refs/heads/main/Logo/LogoBuilder_v1.6.zip) tool.
+  - Unpack the ZIP file.
+
+<img src="https://github.com/user-attachments/assets/3c24da72-ebc1-4dbe-a036-be2fba714ea2" width="300">
+
+
+### Step 2: Open Logo Builder
+- Run **LogoBuilder.exe**.
+- Create a new project.
+- Select the **logo.bin** from your original backup.
+- Make a new folder somewhere and select it for the new project.
+
+<img src="https://github.com/user-attachments/assets/d25ffa6f-134e-4148-8709-ba5b32d2043d)" width="300">
+
+
+### Step 3: Adjust Image Settings
+- You should now see a bunch of images.
+- Click the resolution under one of the images.
+- You will see something like this:
+
+<img src="https://github.com/user-attachments/assets/7679e3aa-ec5d-40e9-bf72-18ce6f15fa90" width="300">
+
+
+- Adjust the **size** and **bitrate**.
+- Try different resolutions (right side) and bitrates (top right) until the image looks right.
+
+<img src="https://github.com/user-attachments/assets/d08ef701-39c9-4a63-8841-7468955bb6a0" width="300">
+
+
+### Step 4: Replace Images
+- Open Photoshop or GIMP.
+- Create a new image **with the same resolution** as the one you want to change.
+- Example:
+
+<img src="https://github.com/user-attachments/assets/d68f6a5b-6e08-4787-b8b0-1c895c3d1010" width="300">
+
+
+- Save it in the project folder, replacing the original image **with the same name**.
+- The replaced image should now look like this:
+
+<img src="https://github.com/user-attachments/assets/3b0fa030-9a65-4aa9-8d68-afa13a3d23bc" width="300">
+
+
+### Step 5: Modify All Necessary Images
+- You can replace:
+  - The **Duoqin logo**
+  - **Charging animations**
+  - **Numbers**
+
+### Troubleshooting
+- If you encounter problems:
+  - Ensure you have the **correct resolution**.
+  - Ensure the image is saved in the **correct format**.
+  - Ensure you **flashed it correctly**.
+  - Try using a **different image editor**.
+
+### Step 6: Repack the **logo.bin**
+- Click this button to repack:
+
+<img src="https://github.com/user-attachments/assets/d6475682-b4e4-4799-8961-a54e2f340c52" width="300">
+
+- A **.zip file** will be created, but we don’t need it.
+- Instead, go to the folder with the images and find the newly created **logo.bin**.
+- Now, you need to flash this file!
+
+---
+
+## Flashing the Logo
+
+You should now have the **.bin** file of the logo.  
+This can either be your own logo file or one of the ones made by me.
+
+### Step 1: Prepare for Flashing
+- Flash it the same way as in [rooting](#rooting).
+- Use either:
+  - **[mtkclient](https://github.com/bkerler/mtkclient)**
+  - **Fastboot**
+
+### Step 2: Put Your Device into Fastboot Mode
+- Enter [fastboot mode](#fastbootbootloader-mode).
+
+### Step 3: Flash the Logo
+- Run the following command:
+  ```
+  fastboot flash logo logo.bin
+  ```
+- Replace `logo.bin` with the directory to your logo file.
+- Now after rebooting you should see your changes.
+
+### If you have any bugs or problems you can always reflash the original backup logo.bin!
+---
+
 
 # Errors you can encounter
 TO BE ADDED LATER
@@ -916,13 +1032,13 @@ To fix, flash md_udc backup.
 )
 
 
-
+<br>
+<br>
 # TODO:
 Document:
 - Editing boot_a.bin
 - TWRP installation
 - installing gapps
-- change logo.bin
 - change boot animation
   <br>
 Make work:
@@ -930,4 +1046,6 @@ Make work:
 - /system auto writable mount
 - make twrp boot image work with sound
 - make custom roms work with 32/3 version
+Made:
+- change logo.bin
 
