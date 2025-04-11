@@ -507,7 +507,7 @@ frp.bin:                           Should store Factory Reset Protection data bu
 gpt_backup.bin / gpt.bin:          These files represent the GUID Partition Table (GPT) and its backup, defining the partition layout on the storage device.​
 gz_a.bin:                          Could be related to the 'gz' partition, possibly containing the Gzip-compressed kernel. For me it is completely empty though.
 lk_a.bin:                          Contains the Little Kernel bootloader, responsible for initializing hardware and starting the main kernel.
-logo.bin:                          Holds the boot logo displayed during device startup.​
+logo.bin:                          Holds the boot logo displayed during device startup as well as charging animations.​
 md_udc.bin:                        I belive it contains the userdata partition decryption keys altough it is mostly empty
 md1img_a.bin:                      Seems to store modem firmware images, crucial for cellular communication. 
 metadata.bin:                      Unknown, empty file
@@ -922,10 +922,11 @@ Document:
 - Editing boot_a.bin
 - TWRP installation
 - installing gapps
+- change logo.bin
+- change boot animation
 Make work:
 - /userdata decryption
 - /system auto writable mount
-- change logo.bin
 - make twrp boot image work with sound
 - make custom roms work with 32/3 version
 
