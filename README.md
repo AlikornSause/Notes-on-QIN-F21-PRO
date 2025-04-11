@@ -924,6 +924,7 @@ Document:
 - installing gapps
 - change logo.bin
 - change boot animation
+  <br>
 Make work:
 - /userdata decryption
 - /system auto writable mount
