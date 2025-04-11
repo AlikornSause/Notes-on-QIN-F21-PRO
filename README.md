@@ -35,6 +35,7 @@ You may and probably will encounter difficulties when rooting, flashing custom R
     - [Changing the Orange Stare Warning text](#changing-the-orange-state-warning-text)
     - [Removing the Orange Stare Warning text](#removing-the-orange-state-warning-text)
     - [Removing the 5 Second Delay in Orange State](#removing-the-5-second-delay-in-orange-state)
+    - [Changing the boot logo](#changing-the-boot-logo)
 
 ---      
 
@@ -934,7 +935,7 @@ The process of changing it to a premade boot logo like the ones I share is very 
 - Select the **logo.bin** from your original backup.
 - Make a new folder somewhere and select it for the new project.
 
-<img src="https://github.com/user-attachments/assets/d25ffa6f-134e-4148-8709-ba5b32d2043d)" width="300">
+<img src="https://github.com/user-attachments/assets/3a5d209f-888a-4940-a846-b039e37454f5)" width="300">
 
 
 ### Step 3: Adjust Image Settings
