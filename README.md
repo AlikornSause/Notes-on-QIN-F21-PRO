@@ -36,6 +36,8 @@ You may and probably will encounter difficulties when rooting, flashing custom R
     - [Removing the Orange Stare Warning text](#removing-the-orange-state-warning-text)
     - [Removing the 5 Second Delay in Orange State](#removing-the-5-second-delay-in-orange-state)
     - [Changing the boot logo](#changing-the-boot-logo)
+    - [Changing the boot animation](#changing-the-boot-animation)
+
 
 ---      
 
@@ -992,8 +994,15 @@ The process of changing it to a premade boot logo like the ones I share is very 
 
 ## Flashing the Logo
 
-You should now have the **.bin** file of the logo.  
-This can either be your own logo file or one of the ones made by me.
+You should now have the **.bin** file of the logo.\
+This can either be your own logo file or one of the ones made by me.\
+So far I made these:
+   - [neofetch-logo.bin](https://github.com/AlikornSause/Notes-on-QIN-F21-PRO/raw/refs/heads/main/Logo/neofetch-logo.bin)
+     - This contains just the boot logo.
+     - If you also change the boot animation [here](#changing-the-boot-animation), it will look better, the white text will also apear, immitating kernel logs.
+   <img src="https://github.com/user-attachments/assets/e4b9fe88-910e-4d77-abbe-27cf7062b722" width="300">
+
+Either way you have your logo file.
 
 ### Step 1: Prepare for Flashing
 - Flash it the same way as in [rooting](#rooting).
@@ -1014,7 +1023,7 @@ This can either be your own logo file or one of the ones made by me.
 
 ### If you have any bugs or problems you can always reflash the original backup logo.bin!
 ---
-
+# Changing the Boot Animation
 
 # Errors you can encounter
 TO BE ADDED LATER
