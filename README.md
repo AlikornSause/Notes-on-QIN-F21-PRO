@@ -935,7 +935,7 @@ The process of changing it to a premade boot logo like the ones I share is very 
 - Select the **logo.bin** from your original backup.
 - Make a new folder somewhere and select it for the new project.
 
-<img src="https://github.com/user-attachments/assets/3a5d209f-888a-4940-a846-b039e37454f5)" width="300">
+<img src="https://github.com/user-attachments/assets/3a5d209f-888a-4940-a846-b039e37454f5" width="300">
 
 
 ### Step 3: Adjust Image Settings
