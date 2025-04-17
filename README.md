@@ -98,13 +98,13 @@ For hacking purposes, the **most important factor** is whether you have the **64
 
 ### Custom ROMs
  There are also some custom ROMs for this phone:
- - **LineageOS 18.1:** Custom ROM posted by @a9381 user on [XDA Forums here](https://xdaforums.com/t/rom-beta-unoffical-lineageos-18-1-for-xiaomi-qin-f21s-pro-by-a-i-v.4431693/), it contains some bugs such as the keypad backlight being always on, no access to /data partition by twrp, VOLTE problems and the wifi and bluetooth being on by default. These bugs seem to be fixable and possibly already fixed in the newer versions of this rom. I haven't tested it yet but it seems like a great alternative to the stock ROMs. I haven't tested this ROM yet but it is reported to work on the 32+3GB version.
+ - **LineageOS 18.1:** Custom ROM posted by A.I.V on [XDA Forums here](https://xdaforums.com/t/rom-beta-unoffical-lineageos-18-1-for-xiaomi-qin-f21s-pro-by-a-i-v.4431693/), it contains some bugs such as the keypad backlight being always on, no access to /data partition by twrp, VOLTE problems and the wifi and bluetooth being on by default. These bugs seem to be fixable and possibly already fixed in the newer versions of this rom. I haven't tested it yet but it seems like a great alternative to the stock ROMs. I haven't tested this ROM yet but it is reported to work on the 32+3GB version.
 <br>
    Update : I tested this rom on the 32+3GB version and so far it does not work.
    
- - **AOSP13BETA QinF21PRO AIV:** A custom rom found on 4pda.to. I tested it but couldn't get it to work.
+ - **AOSP13BETA QinF21PRO AIV:** A custom rom found on 4pda.to, made by A.I.V. I tested it but couldn't get it to work.
    
- - **Some kosher ROMs for for the religious people from Israel** made by @Ashi Vered. You can find more info in [his GitHub page](https://github.com/AshiVered/Android-custom-ROMs).
+ - **Some kosher ROMs for for the religious people from Israel** made by A.I.V . You can find more info in [his GitHub page](https://github.com/AshiVered/Android-custom-ROMs).
 
 
 
