@@ -5,6 +5,9 @@ I am an amateur, and everything I say here should be taken with a grain of salt.
 You may and probably will encounter difficulties when rooting, flashing custom ROMs, or modifying your device. However, the good news is that there is a lot of support online, and most mistakes have already been made and fixed. Good luck hacking!
 
 ---
+## Join my discord server!
+If you want more information and help, join this discord server!
+## [CLICK HERE TO JOIN](https://discord.gg/EpKerSbudQ)
 
 ## Table of Contents
 - [Introduction to the phone](#the-phone)
