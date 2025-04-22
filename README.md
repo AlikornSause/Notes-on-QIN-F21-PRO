@@ -95,16 +95,21 @@ A list of all URLs that are/ can be sent information:
 The privacy topic will be discussed more later in this document.
 
 ### Differences
-The **64+4GB version** seems to be **easier to root and install custom ROMs**. I personally have a **32+3GB black English original ROM** and have confirmed that it's possible to modify and root this version. 
-
-For hacking purposes, the **most important factor** is whether you have the **64+4GB or 32+3GB version** and whether **the bootloader is unlocked**—other differences don't matter as much.
+There should be no difference between the 64 and 32 versions, their ROMs are compatible with each other.
+In case there are problems, it is only a problem due to the size of the partitions - usually in the userdata partition, replace it with the userdata partition from the ROM that worked for you and it should work
 
 ### Custom ROMs
  There are also some custom ROMs for this phone:
- - **LineageOS 18.1:** Custom ROM posted by A.I.V on [XDA Forums here](https://xdaforums.com/t/rom-beta-unoffical-lineageos-18-1-for-xiaomi-qin-f21s-pro-by-a-i-v.4431693/), it contains some bugs such as the keypad backlight being always on, no access to /data partition by twrp, VOLTE problems and the wifi and bluetooth being on by default. These bugs seem to be fixable and possibly already fixed in the newer versions of this rom. I haven't tested it yet but it seems like a great alternative to the stock ROMs. I haven't tested this ROM yet but it is reported to work on the 32+3GB version.\
+ - **LineageOS 18.1:** Custom ROM posted by A.I.V on [XDA Forums here](https://xdaforums.com/t/rom-beta-unoffical-lineageos-18-1-for-xiaomi-qin-f21s-pro-by-a-i-v.4431693/), it contains some bugs such as the keypad backlight being always on, no access to /data partition by twrp (isn't bug, is a feature :) in Android 11, /data partiotion is encrypted by default.) the wifi and bluetooth being on by default. These bugs seem to be fixable and possibly already fixed in the newer versions of this rom. I haven't tested it yet but it seems like a great alternative to the stock ROMs. I haven't tested this ROM yet but it is reported to work on the 32+3GB version.
+
+VoLTE in this ROM:
+need to work, according to reports and various videos online. According to A.I.V, the creator of the ROM, he has no way to verify this due to specific problems with this device (in the original ROM as well) in his country (Israel).
+
 Update : I tested this rom on the 32+3GB version and so far it does not work.
+Update : try this LOS 18.1 for 3/32. thanks for A.I.V!
    
  - **AOSP13BETA QinF21PRO AIV:** A custom rom found on 4pda.to, made by A.I.V. I tested it but couldn't get it to work.
+ - **1.1.1 Googled,TWRP, and Multi language:** based on the stock ROM, by A.I.V. You can find more info in [this 4PDA post.](https://4pda.to/forum/index.php?showtopic=1046891&view=findpost&p=115841770)
    
  - **Some kosher ROMs for for the religious people from Israel** made by A.I.V . You can find more info in [his GitHub page](https://github.com/AshiVered/Android-custom-ROMs).
 
@@ -780,7 +785,10 @@ This is my preferred method 🙂. Of course, you will **need root** for this.
 
 
 ## Installing GAPPS
-TO BE ADDED LATER
+
+you can flash Googled ROM, see  [Custom ROMs](#custom-roms).
+if you want do it yourself, I hope to provide full guide later
+
 ---
 ## Installing custom ROMs
 TO BE ADDED LATER
