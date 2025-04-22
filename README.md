@@ -785,7 +785,10 @@ This is my preferred method 🙂. Of course, you will **need root** for this.
 
 
 ## Installing GAPPS
-TO BE ADDED LATER
+
+you can flash Googled ROM, see  [Custom ROMs](#custom-roms).
+if you want do it yourself, I hope to provide full guide later
+
 ---
 ## Installing custom ROMs
 TO BE ADDED LATER
