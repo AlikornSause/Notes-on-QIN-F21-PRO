@@ -401,9 +401,9 @@ A list of apps installed by default that aren't part of Android or MTK apps:
 ```
 
 #### Be Careful When Removing!
-Most of this is useless and can be removed with the device still booting **EXCEPT FOR THE WEATHER APP!**  
-This <ins>wasn't tested by me</ins>, but people reported the phone **entering a bootloop** after removing the weather app!
-
+Most of this is useless and can be removed with the device still booting **EXCEPT FOR THE WEATHER APP!**\
+When you remove the weather app, after rebooting your phone will fail to run SystemUI, essentially\
+making it a brick and you'll need to install a backup. Don't remove the weather app!
 
 
 ---
@@ -525,7 +525,7 @@ nvcfg.bin:                         Likely holds NV (Non-Volatile) configuration 
 nvdata.bin:                        Stores NV (Non-Volatile) data, which may include IMEI numbers, calibration data, and other persistent settings.​
 nvram.bin:                         Contains Non-Volatile RAM data, essential for storing persistent system settings and configurations.​
 otp.bin:                           Unknown, empty file
-para.bin:                          Unknown, almost empty file
+para.bin:                          Almost empty file, contains the current-slot value.
 proinfo.bin:                       Contains the serial number and some hardware information. Almost empty
 protect1.bin:                      Unknown, contains some data
 scp_a.bin:                         Unknown, contains a lot of binary data and some readable strings.
@@ -542,8 +542,10 @@ vbmeta_vendor_a.bin:               Seems to store some system metadata like com.
 vendor_boot_a.bin:                 Unknown, empty file.
 [read preloader]boot1.bin:         Contains the preloader or initial bootloader code, responsible for early hardware initialization before handing control forward.
 ```
+![image](https://github.com/user-attachments/assets/7a40faf3-92b2-45ae-a491-7469c8714c1f)
+Current-slot value stored in para.bin
 
-**For me the most interesting files will be:**
+**For me the most interesting files will be these though:**
    - boot_a.bin
    - super.bin
    - lk_a.bin
@@ -684,7 +686,8 @@ Note: This tutorial is based on [this](https://xdaforums.com/t/guide-xiaomi-qin-
     - The process should now be done!
 
 13. **Power your device up**
-    - You should see an **Orange state warning**. This is **normal**. It means the bootloader is unlocked.
+    - You should see an **Orange state warning**. This is **normal**. It means the bootloader is unlocked.\
+      [NOTE: some googled devices seem to not show this message]
     - The message should not be worrying. The phone will boot in 5 seconds.
     - The message can also be [changed](#changing-the-orange-state-warning-text) or [removed](#removing-the-orange-state-warning-text).
     - The 5 second delay can also be [removed](#removing-the-5-second-delay-in-orange-state).
@@ -800,6 +803,8 @@ Orange State
 Your device has been unlocked and can't be trusted
 Your device will boot in 5 seconds
 ```
+[NOTE: some googled devices seem to not show this message]
+
 You can change it to say something else.
 
 **The steps to change the text:**
