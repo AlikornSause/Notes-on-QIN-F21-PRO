@@ -1,4 +1,4 @@
-# 📦 Changing the Orange State Warning Text
+# 📦 Removing the Orange State Warning Text
 
 > ⚠️ **Annoyed by this message during boot?**
 ```
@@ -11,7 +11,7 @@ Your device will boot in 5 seconds
 
 ---
 
-## ✅ How to Change the Orange State Warning
+## ✅ How to remove the Orange State Warning
 
 ### 1. Access Your ROM Backup
 
@@ -50,8 +50,10 @@ You should see something like this:
 
 ### 4. Edit the String
 
-> ✏️ Now you can change the message — but **be extremely careful**!
+> ✏️ Now you can remove the message — but **be extremely careful**!
 
+- Overwrite the displayed characters with `00` in HEX, if you want to remove the text.
+- You can also change the text to say something else.
 - **Only overwrite** the string — **do not add extra characters**
 - After your custom message, **fill the remaining space with `00` in HEX**, not `"0"` or spaces
 
