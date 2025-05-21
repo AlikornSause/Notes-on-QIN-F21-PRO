@@ -1,44 +1,66 @@
-# Making a Full Backup
-## Requirements
-To make a full backup, you need to have mtkclient running.\
-In this tutorial, I'm using mtkclient gui.\
-If you don't know how to use mtkclient, look [here]().
+# 📦 Making a Full Backup with MTKclient
 
-## How to Make a Backup
-1. Run **mtkclient GUI**.
-2. Power off your device and connect it in [BROM mode](#brom-bootrom-mode) or in [preloader mode](#preloader-mode).
-   - To enter BROM mode, follow [this guide](#brom-bootrom-mode).
-   - If successful, you should see a confirmation message.
-     
-     <img src="https://github.com/user-attachments/assets/f6b7e5ef-7db0-4b38-9b40-26b05f0f6661" width="400">
+## ✅ Requirements
+- A Windows / Linux / macOS computer  
+- MTKclient (GUI version preferred)  
+- A USB cable to connect the phone  
 
-4. Proceed with the backup:
-   - Open the **Read partition(s)** tab.
-   - Click **Select all partitions**.
-   - You <ins>can</ins> unselect **userdata** from the list:
-     - This partition contains user data. If your phone is factory reset, there is no need to back this up.
-     - If your phone is not factory reset and you want to keep your data, leave the box checked.
-     - However, be aware that **userdata is encrypted**.
-     - If the decryption keys are lost (their location is unknown to me), you may not be able to decrypt it later, resulting in data loss.
-     - If you are flashing other ROMs, assume you will lose userdata.
-   - Enable **Dump GPT**.
-   - Press **Read Partition(s)** and select a safe place to store the backup.
-   - Click **OK** and wait for the process to complete.
+---
 
-     <img src="https://github.com/user-attachments/assets/0ca80eec-4827-429b-9ba9-ec3a00ba5556" width="300">
+## 📝 How to Make a Backup
 
-> **DO NOT touch anything, move the cable, or interrupt the process!**
- 4. When it says its **done** you should have a bunch of files in the directory you chose\
-     Again, **keep them safe**
-5. Now, we will backup the **Preloader**\
-    I am not yet sure if this is essential but it doesn't hurt to backup it anyway\
-    If you backup it, you might then **unbrick your device easier** so it is worth it
-   - Open the **Flash Tools** tab.
-   - Click **Read preloader**
-   - Select a safe place to store it.
-     - I like to rename it from ```boot1.bin``` to ```[preloader]boot1.bin```
-6. Success! You should now have an entire system backup\
-   It can be reflashed later in case of a brick or you wanting to go back to its original ROM\
-   To reflash use the **Write Partition(s)** tab
+### 1. Launch **MTKclient GUI**
+This guide assumes you're using the GUI version. The command-line version can also be used, but it's not covered here.
 
-     <img src="https://github.com/user-attachments/assets/1b332f5f-9d1f-45c0-82c4-28bf610d63da" width="600">
+---
+
+### 2. Power Off & Connect the Device  
+Power off your device and connect it in either:  
+- [**BROM mode**](https://github.com/AlikornSause/Notes-on-QIN-F21-PRO/blob/main/Hacks/BROM%20mode.md), or  
+- [**Preloader mode**](https://github.com/AlikornSause/Notes-on-QIN-F21-PRO/blob/main/Hacks/Preloader%20mode.md)  
+
+If successful, you should see a confirmation message:
+
+<img src="https://github.com/user-attachments/assets/f6b7e5ef-7db0-4b38-9b40-26b05f0f6661" width="400">
+
+---
+
+### 3. Proceed with the Backup  
+1. Go to the **Read Partition(s)** tab  
+2. Click **Select all partitions**  
+3. You *can* uncheck **userdata**:  
+   - This partition contains user data  
+   - If your phone is **factory reset**, you can skip backing this up  
+   - If your phone is **not factory reset** and you want to keep your data, leave it checked  
+   ⚠️ **Note**:  
+   - Userdata is **encrypted**  
+   - If the decryption keys are lost, you may not be able to decrypt it later — this could result in **permanent data loss**  
+4. Enable **Dump GPT**  
+5. Press **Read Partition(s)** and choose a safe location to store the backup  
+6. Click **OK** and wait for the process to finish  
+
+<img src="https://github.com/user-attachments/assets/0ca80eec-4827-429b-9ba9-ec3a00ba5556" width="300">
+<br>
+⚠️ **DO NOT** touch anything, move the cable, or interrupt the process!
+
+---
+
+### 4. Verify Backup Files  
+Once it says **Done**, you should see a number of files in your chosen backup folder.  
+✅ **Keep them safe!**
+
+---
+
+### 5. Backup the **Preloader**  
+While it's not yet confirmed whether this is essential, backing it up can make unbricking easier.  
+1. Go to the **Flash Tools** tab  
+2. Click **Read Preloader**  
+3. Save the file somewhere secure  
+   - (Optional) Rename it from `boot1.bin` to `[preloader]boot1.bin` for clarity
+
+---
+
+### 6. ✅ Success!
+You now have a complete system backup. This can be reflashed using the **Write Partition(s)** tab if you ever need to recover from a brick or restore the stock ROM.
+
+<img src="https://github.com/user-attachments/assets/1b332f5f-9d1f-45c0-82c4-28bf610d63da" width="1000">
