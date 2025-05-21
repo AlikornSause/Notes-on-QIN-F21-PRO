@@ -1,4 +1,4 @@
-# ⏱️ Removing the 5-Second Delay in Orange State
+# 📦 Removing the 5-Second Delay in Orange State
 
 You might be annoyed by the 5-second delay that extends the boot process.  
 The delay can be removed using a method similar to [changing the Orange State warning text](#changing-the-orange-state-warning-text).
