@@ -1,34 +1,62 @@
-## Modifying the /system partition
-**BE CAREFUL!** When editing the /system partition you can delete crucial system files and brick your device!
-<br><br>
-If your device is already rooted you can edit anything on the /system partition.\
+# ⚠️ Modifying the `/system` Partition
 
-The steps to do this:
-1. You need to get a root shell. This can be done through a terminal app or through adb.
-   - If you want to use a terminal app you will need to grant superuser permission when using it.\
-     To do this, simply open up a command line [(termux)](https://github.com/termux/termux-app) or something similar and type in:
-     ```
-     su
-     ```
-     This will prompt for superuser permission if you have working magisk root. Grant this permission.\
-     Now you have a root shell on your device. This can be seen as a **#** at the end of your command prompt instead of a **$**
-     
-   - If you want to use adb, run:
-     ```
-     adb shell
-     su
-     ```
-     You will probably be also prompted for superuser permission. **It might also require enabling adb root access in magisk settings**.\
-     Now you have a root shell using adb. This can be seen as a **#** at the end of your command prompt instead of a **$**
-     
-     Note: This is **NOT** the same as doing ```adb root```, which is only available on test builds and would require some tweaking to work on this device
+> **BE CAREFUL!** Editing the `/system` partition can delete crucial system files and **brick your device**!
 
-2. Remount the /system partition:
+If your device is already **rooted**, you can modify anything on the `/system` partition.
+
+---
+
+## 🛠️ Steps to Modify `/system`
+
+### 1. Get a Root Shell
+
+You need a **root shell**. This can be done through a terminal app or via **ADB**.
+
+#### 📱 Option A: Terminal App
+
+1. Install a terminal app like [**Termux**](https://github.com/termux/termux-app)  
+2. Open it and type:
    ```
-   mount -o rw,remount /
+   su
    ```
-   This will make the /system partition writable.
-   
-3. You can modify anything as long **as you are root**. After a reboot you will need to remount it again\
-   **BE CAREFUL!** When editing the /system partition you can delete crucial system files and brick your device!
+3. If you have **Magisk root**, you’ll be prompted to grant superuser permission. Grant it.
 
+✅ You now have a **root shell** — your prompt will change from **`$`** to **`#`**.
+
+---
+
+#### 💻 Option B: ADB (Android Debug Bridge)
+
+1. On your PC, run:
+   ```
+   adb shell
+   su
+   ```
+2. Grant superuser permission when prompted.  
+   - You may need to enable **ADB root access** in **Magisk settings**.
+
+✅ You now have a **root shell** via ADB — your prompt will show **`#`** instead of **`$`**.
+
+> ❗ This is **not** the same as using `adb root`, which only works on test builds and may require advanced tweaks.
+
+---
+
+### 2. Remount `/system` as Read/Write
+
+Once in a root shell, run:
+
+```
+mount -o rw,remount /
+```
+
+This command remounts the root filesystem, making `/system` writable.
+
+---
+
+### 3. Modify as Needed
+
+As long as you’re **root**, you can now modify the `/system` partition.
+
+> 🔁 After a reboot, you’ll need to **remount** `/system` again.
+
+> ⚠️ **BE CAREFUL!** Deleting or modifying system files can lead to bootloops or permanent bricking.
