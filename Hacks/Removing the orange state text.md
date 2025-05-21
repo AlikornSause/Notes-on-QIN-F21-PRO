@@ -1,61 +1,103 @@
-# Changing the Orange State Warning text
-**You might be annoyed by this text that appears when booting:**
+# 📦 Changing the Orange State Warning Text
+
+> ⚠️ **Annoyed by this message during boot?**
 ```
 Orange State
 Your device has been unlocked and can't be trusted
 Your device will boot in 5 seconds
 ```
-[NOTE: some googled devices seem to not show this message]
+> You can safely modify or remove this message by editing the LK bootloader binary.  
+> 📝 *Note: Some Google devices may not show this message at all.*
 
-You can change it to say something else.
-
-## Removing / chaning the orange state warning text
-1. **Go into your ROM backup.** If you haven't done it, [do it now](#making-a-full-backup)!
-   - Find the following file: ```lk_a.bin``` or ```lk_b.bin``` **depending on which slot is active**.
-   - **LK** stands for **Little Kernel** and is a kind of bootloader.
-     
-2. **Open the file with a hex editor** like [HxD](https://mh-nexus.de/en/hxd/)
-   - We will need to edit the file as hex information
-     
-3. **Find the string**
-   - Do a text search for **"orange"** or **"state"**.
-   - You will probably see a couple of strings containing the word **"orange"** but you need to find the one with the whole string.
-   - It should look like this:
-     
-     ![image](https://github.com/user-attachments/assets/ac62515e-c21c-4e28-8b25-a27abb9777fa)
-
-4. **Edit the string**
-   - Now you can edit the string **BUT BE VERY CAREFUL!**.
-   - You **shouldn't add** any text but **overwrite** the text to be displayed that's already in there.
-   - It should look something like this.
-     
-     ![image](https://github.com/user-attachments/assets/cbca998f-463e-4090-8b92-ccb0e69922d6)
-
-   - Notice how I zeroed the rest of the text area and didn't put spaces in there.
-   - Make sure you **don't** put 0 as a character because it will display 0's on the screen.
-   - Make sure you **don't** put spaces in there.
-   - Put ```00```'s in **HEX** and **not** "0"s as characters!
-
-5. **MAKE SURE you didn't overwrite anything**
-   - You have to be sure that you didn't overwrite anything that was in there.
-   - You can **only overwrite the text that would be displayed**.
-   - Make sure the text you put there together with the ```00's``` isn't longer than the original text.
-   - **You really shouldn't overwrite anything other than the text displayed!**
-     
-6. **Save the file somewhere else as lk.bin**
-   - Make sure **not to overwrite your backup file!**
-     
-7. **Flash the file**
-   - Flash the file to either ```lk_a``` or ```lk_b``` partitions **depending on which slot is active**
-   - You should do the flashing the same way as in [here](#rooting) point 11 using mtkclient.
-   - Again, **make sure you only overwrite the lk_a or lk_b**.
-     
-8. **Reboot**
-   - If done correctly, the text should change as expected 🙂.
-   - This can also be used to change other strings.
-   - This includes the **Red state** warning and other warnings.
-   - The process should be very similar although **I haven't tested that**.
-   - But always, be **very carefull** when modifying these files.
-
-**If the device behaves strangely, you might have made an error when editing, try to reflash the original backup of lk**
 ---
+
+## ✅ How to Change the Orange State Warning
+
+### 1. Access Your ROM Backup
+
+If you haven't created a backup yet, [make one now](#making-a-full-backup)!
+
+- Look for either `lk_a.bin` or `lk_b.bin`, depending on your **active slot**
+- **LK** stands for **Little Kernel**, part of the bootloader
+
+---
+
+### 2. Open the LK File in a Hex Editor
+
+- Use a hex editor like [**HxD**](https://mh-nexus.de/en/hxd/)
+- Open `lk_a.bin` or `lk_b.bin` for raw hex editing
+
+---
+
+### 3. Search for the Warning String
+
+- Use the **text search** function to look for:
+  ```
+  orange
+  ```
+  or:
+  ```
+  state
+  ```
+
+- You may find multiple matches — locate the **full warning string**
+
+You should see something like this:
+
+![image](https://github.com/user-attachments/assets/ac62515e-c21c-4e28-8b25-a27abb9777fa)
+
+---
+
+### 4. Edit the String
+
+> ✏️ Now you can change the message — but **be extremely careful**!
+
+- **Only overwrite** the string — **do not add extra characters**
+- After your custom message, **fill the remaining space with `00` in HEX**, not `"0"` or spaces
+
+Example:
+
+![image](https://github.com/user-attachments/assets/cbca998f-463e-4090-8b92-ccb0e69922d6)
+
+✅ Notes:
+- Do **not** insert actual zero characters — that will display as `0` on boot
+- Do **not** use spaces — fill unused space with `00` in **HEX**
+- Keep your new message **shorter or equal in length** to the original string
+
+---
+
+### 5. Double Check the Edit
+
+- Ensure **you only changed the display string**
+- Verify that you haven’t accidentally edited nearby data
+- ⚠️ **The new string (including HEX padding) must not exceed the original length**
+
+---
+
+### 6. Save the File Safely
+
+- Save the edited file as `lk.bin`
+- ✅ **Do not overwrite your backup copy!** Keep it safe in case you need to revert
+
+---
+
+### 7. Flash the Edited LK File
+
+- Flash `lk.bin` to the appropriate partition: `lk_a` or `lk_b` depending on your active slot
+- Use the same method as [described here](#rooting), step 11 via **mtkclient**
+
+⚠️ Only flash `lk_a` or `lk_b` — never touch other partitions!
+
+---
+
+### 8. Reboot and Verify
+
+- Reboot your device
+- If everything was done correctly:
+  - ✅ The new message will appear on boot
+  - 🛠️ You can also modify other warning texts (e.g., **Red State**) using the same method  
+    > ⚠️ Not all have been tested — proceed carefully!
+
+---
+
+> ❗ If your device behaves oddly or won’t boot, reflash the original backup of your LK file.
