@@ -1,15 +1,22 @@
 # Notes on QIN F21 PRO
+# Support me
+## ☕ https://ko-fi.com/alikornsause 
+If you find my work helpful and you want to help me develop, you can **buy me a coffee**\
+Thanks!
+
+# Join my discord server!
+If you want more information and help, join this discord server!\
+It's a big community of people interested in duoqin phones.
+## [CLICK HERE TO JOIN](https://discord.gg/EpKerSbudQ)
+
 ## Disclaimer
 I am an amateur, and everything I say here should be taken with a grain of salt. The information presented here was gathered through my research and from the amazing [XDA Forums](https://xdaforums.com/)! I do not take responsibility for bricking your device, losing your data, or any other issues that may arise. The information presented here **might not be 100% true** and some of it is my subjective opinion. If in any case I am wrong i would greatly appreciate your feedback so that everything here to be a great source of info for other people.
 
 You may and probably will encounter difficulties when rooting, flashing custom ROMs, or modifying your device. However, the good news is that there is a lot of support online, and most mistakes have already been made and fixed. Good luck hacking!
 
 ---
-## Join my discord server!
-If you want more information and help, join this discord server!
-## [CLICK HERE TO JOIN](https://discord.gg/EpKerSbudQ)
 
-## Table of Contents
+# Table of Contents
 - [Introduction to the phone](#the-phone)
 - [Device variants](#versions)
     - [Hardware variants](#hardware-versions)
