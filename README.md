@@ -427,7 +427,8 @@ To make a full device backup, you will need [mtkclient](https://github.com/bkerl
 - Unlocking/Locking the bootloader
 - And more
 
-I **will not go into details on how to install it**. You can find installation guides on the internet. You will also need to install the necessary drivers.
+I **will not go into details on how to install it**. You can find installation guides on the internet. You will also need to install the necessary drivers.\
+**NOT FOR MAC USERS: you should use the "alternative method" described below, using the live iso it more reliable on mac!**
 
 #### Alternative Method
 If you do not want to install everything manually, you can use this **[ready-to-use ISO file](https://androidfilehost.com/?fid=15664248565197184488)**:
